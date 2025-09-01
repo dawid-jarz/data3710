@@ -72,16 +72,22 @@ footer { /* Footer styling */
   /*Priser.html*/
 
   .priser-body {
-    height: 100%;
+    min-height: 100vh;
+    margin: 0;
     display: flex;
     flex-direction: column;
+    color: black;
   }
 
   .priser-main {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   #pris-container {
+    width: 100%;
     max-width: 900px;
     margin 0 auto;
     background-color: #fff;
@@ -97,7 +103,7 @@ footer { /* Footer styling */
   }
 
   #pris-table th, #pris-table td {
-    text-align: center;
+    text-align: left;
     padding: 15px;
     border-bottom: 1px solid #eee;
   }
@@ -109,6 +115,8 @@ footer { /* Footer styling */
 
   #pris-table .underoverskrift-prisliste td {
     background-color: #f9f9f9;
-    font weight: 600;
+    font-weight: bold;
     text-align: :left;
+    border-top: 2px solid #ccc;
+    padding-top: 0.5rem;
   }
