@@ -8,6 +8,7 @@ html, body { /*Dytter footeren til bunnen av siden*/
   }
 body {
   background-color: #7B9E87;
+  font-family: "Lato", sans-serif;
 }
 #navbar{
   background-color: pink;
