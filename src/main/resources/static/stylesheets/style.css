@@ -13,6 +13,8 @@ body {
   background-color: pink;
   justify-content: space-between;
   display: flex;
+  position: relative;
+  align-items: center;
 }
 .navbar-left{
   display: flex;
@@ -21,16 +23,14 @@ body {
 .navbar-mid{
   display: flex;
   align-items: center;
+  justify-content: center;
   list-style: none;
   gap: 2%;
 }
 .navbar-right{
   display: flex;
   align-items: center;
-}
-.logo{
-  width: 20%;
-  width: 20%;
+  padding-right: 40px;
 }
 
 /*FOOTER*/
