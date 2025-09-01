@@ -9,9 +9,11 @@ html, body { /*Dytter footeren til bunnen av siden*/
 body {
   background-color: #7B9E87;
   font-family: "Lato", sans-serif;
+  color: white;
 }
+
 #navbar{
-  background-color: pink;
+  background-color: #0A1128;
   justify-content: space-between;
   display: flex;
   position: relative;
@@ -20,6 +22,12 @@ body {
 .navbar-left{
   display: flex;
   align-items: center;
+  list-style: none;
+}
+.navbar-left li{
+  padding-left: 25px;
+  font-weight: 600;
+  font-size: large;
 }
 .navbar-mid{
   display: flex;
