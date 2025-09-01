@@ -87,7 +87,7 @@ a{ /*Alt av href elementer*/
 /*FOOTER*/
 footer { /* Footer styling */
     margin-top: auto;
-    background-color: #004d2d;
+    background-color: #0A1128;
     color: white;
     text-align: center;
     padding: 0.5rem;
@@ -105,6 +105,7 @@ footer { /* Footer styling */
     width: 20px;               
     height: 20px;
     transition: transform 0.2s;
+    filter: brightness(0) invert(1);
   } 
 
 
