@@ -37,7 +37,7 @@ a{
   align-items: center;
   justify-content: center;
   list-style: none;
-  gap: 2%;
+  gap: 4%;
 }
 .navbar-right{
   display: flex;
