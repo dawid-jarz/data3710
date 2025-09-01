@@ -7,7 +7,7 @@ html, body { /*Dytter footeren til bunnen av siden*/
     flex-direction: column;
   }
 body {
-  background-color: #7B9E87;
+  background-color: #F4F1DE;
   font-family: "Lato", sans-serif;
   color: white;
 }
@@ -87,7 +87,7 @@ a{
 footer { /* Footer styling */
     margin-top: auto;
     background-color: #004d2d;
-    color: black;
+    color: white;
     text-align: center;
     padding: 0.5rem;
     font-size: 0.85rem;
@@ -105,3 +105,71 @@ footer { /* Footer styling */
     height: 20px;
     transition: transform 0.2s;
   } 
+
+
+  /*Priser.html*/
+
+  .priser-body { /* Gjør siden til flex og sørger for at tekstfargen er sort*/
+    display: flex;
+    color: black;
+  }
+
+  .priser-main { /*Sørger for at tabellen kommer under overskriften*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #pris-container { /*Styler boksen til pris tabellen*/
+    width: 100%;
+    max-width: 900px;
+    margin 0 auto;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+  }
+
+  #pris-table { /*Styler selve pris tabellen*/
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+  }
+
+  #pris-table th, #pris-table td { /*Styler cellene i pris tabellen*/
+    text-align: left;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+  }
+
+  #pris-table th { /*Styler overskriftene i pris tabellen*/
+    background-color: #f9f9f9;
+    font-weight: 600;
+  }
+
+  #pris-table .underoverskrift-prisliste td { /*Setter inn underoverskrift i pris tabellen*/
+    background-color: #f9f9f9;
+    font-weight: bold;
+    text-align: :left;
+    border-top: 2px solid #ccc;
+    padding-top: 0.5rem;
+  }
+
+  .pris-bestilling { /*Gå fra pris til bestilling overskrift*/
+    text-align: center;
+  }
+  
+  .bestill-knapp { /*Design av knappen som tar deg fra priser til bestilling*/
+    background-color: #0A1128;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  #bestill-knap:hover { /*endrer knappens farge ved hovering*/
+    background-color: #5a7a66;
+  }
