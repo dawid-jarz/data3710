@@ -58,52 +58,62 @@ a{ /*Alt av href elementer*/
   display: none;  
 }
 /*dropdown-content*/
-/* The container <div> - needed to position the dropdown content */
 .dropdown {
   position: relative;
   display: inline-block;
 }
 
-/* Dropdown Content (Hidden by Default) */
+/* Dropdown menyen */
 .dropdown-content {
-  display: none;
   position: absolute;
+  top: 100%;
+  left: 0;
+  display: none;
+
+  /* Fjerner den tidligere UL stilen*/
+  list-style: none;
+  margin: 0;
+  padding: 8px 0;
+
+  min-width: 180px;
   background-color: #0A1128;
-  border-color: white;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-  margin: 5px 5px 5px 5px;
+  border-radius: 6px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  z-index: 1000;
 }
 
-/* Links inside the dropdown */
+/* vis dropdown meny ved hover */
+.dropdown:hover .dropdown-content { display: block; }
+
+/* Lenkene i dropdown menyen */
 .dropdown-content a {
-  color: white;
-  padding: 12px 16px;
+  display: block;           
+  padding: 10px 16px;
+  color: #fff;
   text-decoration: none;
-  display: block;
+  white-space: nowrap;       
 }
 
-/* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #ddd;}
-
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {display: block;}
-
-/* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover #dropdown-arrow {
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    transform: scale(1.05);
+/* hover på "mer" knappen */
+.dropdown-content a:hover {
+  background-color: rgba(255,255,255,0.08);
 }
 
+/* knappen "Mer" */
 #dropdown-arrow{
-  background-color: #0A1128;
+  background: #0A1128;
   border: none;
-  fill: none;
   color: white;
-  align-items: center;
   display: flex;
-  font-size: medium;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+
+.dropdown:hover #dropdown-arrow {
+  transform: scale(1.03);
+  transition: transform .2s ease;
 }
 
 @media (max-width: 1205px) {
