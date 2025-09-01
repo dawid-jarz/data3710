@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="stylesheets/style.css">
     <link rel="stylesheet" href="stylesheets/style2.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=person" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
     <title>Bekkestua Kosthold og Livsstil</title>
 </head>
 <body>
@@ -25,10 +25,17 @@
             <li><a href="html/kontakt.html">Kontakt</a></li>
             <li><a href="html/protilean.html">ProtiLean</a></li>
             <li><a href="html/protilean.html">Vektreduksjon</a></li>
-            <li>Mer</li>
+            <li>Mer
+                <ul class="dropdown-content">
+                    <li><a href="html/samarbeid.html"></a>Samarbeid</li>
+                    <li><a href="html/oss.html"></a>Hvorfor velge oss</li>
+                    <li><a href="html/forventning.html"></a>Hva kan jeg forvente</li>
+                </ul>
+            </li>
         </ul>
         <ul class="navbar-right">
-            <span class="material-symbols-outlined">person</span>
+            <button id="person" onclick="location.href='html/min-side.html'"><span class="material-symbols-outlined">person</span></button>
+            <button id="button-burger"><span class="material-symbols-outlined" id="hamburger-menu">menu</span></button>
         </ul>
     </nav>
     <main>

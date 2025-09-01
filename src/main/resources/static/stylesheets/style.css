@@ -44,6 +44,44 @@ a{
   align-items: center;
   padding-right: 40px;
 }
+#person{
+  border: none;
+  fill: none;
+  background-color: #0A1128;
+  color: white;
+}
+#hamburger-menu{
+  display: none;
+}
+#button-burger{
+  display: none;  
+}
+@media (max-width: 1190px) {
+  .navbar-left li{
+    display: none;
+  }
+  #button-burger{
+    display: none;  
+  }
+}
+@media (max-width: 830px){
+  #hamburger-menu{
+    display: flex;
+  }
+  #button-burger{
+    display: flex;
+    border: none;
+    fill: none;
+    background-color: #0A1128;
+    color: white;
+  }
+  .navbar-mid{
+    display: none;
+  }
+  .navbar-right{
+    gap: 5%;
+  }
+}
 
 /*FOOTER*/
 footer { /* Footer styling */
