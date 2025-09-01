@@ -71,22 +71,18 @@ footer { /* Footer styling */
 
   /*Priser.html*/
 
-  .priser-body {
-    min-height: 100vh;
-    margin: 0;
+  .priser-body { /* Gjør siden til flex og sørger for at tekstfargen er sort*/
     display: flex;
-    flex-direction: column;
     color: black;
   }
 
-  .priser-main {
-    flex: 1;
+  .priser-main { /*Sørger for at tabellen kommer under overskriften*/
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
-  #pris-container {
+  #pris-container { /*Styler boksen til pris tabellen*/
     width: 100%;
     max-width: 900px;
     margin 0 auto;
@@ -96,24 +92,24 @@ footer { /* Footer styling */
     box-shadow: 0 0 20px rgba(0,0,0,0.05);
   }
 
-  #pris-table {
+  #pris-table { /*Styler selve pris tabellen*/
     width: 100%;
     border-collapse: collapse;
     margin-top: 30px;
   }
 
-  #pris-table th, #pris-table td {
+  #pris-table th, #pris-table td { /*Styler cellene i pris tabellen*/
     text-align: left;
     padding: 15px;
     border-bottom: 1px solid #eee;
   }
 
-  #pris-table th {
+  #pris-table th { /*Styler overskriftene i pris tabellen*/
     background-color: #f9f9f9;
     font-weight: 600;
   }
 
-  #pris-table .underoverskrift-prisliste td {
+  #pris-table .underoverskrift-prisliste td { /*Setter inn underoverskrift i pris tabellen*/
     background-color: #f9f9f9;
     font-weight: bold;
     text-align: :left;
