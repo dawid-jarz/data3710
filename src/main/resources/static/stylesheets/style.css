@@ -7,7 +7,7 @@ html, body { /*Dytter footeren til bunnen av siden*/
     flex-direction: column;
   }
 body {
-  background-color: #7B9E87;
+  background-color: #F4F1DE;
   font-family: "Lato", sans-serif;
   color: white;
 }
@@ -49,7 +49,7 @@ a{
 footer { /* Footer styling */
     margin-top: auto;
     background-color: #004d2d;
-    color: black;
+    color: white;
     text-align: center;
     padding: 0.5rem;
     font-size: 0.85rem;
@@ -115,4 +115,23 @@ footer { /* Footer styling */
     text-align: :left;
     border-top: 2px solid #ccc;
     padding-top: 0.5rem;
+  }
+
+  .pris-bestilling { /*Gå fra pris til bestilling overskrift*/
+    text-align: center;
+  }
+  
+  .bestill-knapp { /*Design av knappen som tar deg fra priser til bestilling*/
+    background-color: #0A1128;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  #bestill-knap:hover { /*endrer knappens farge ved hovering*/
+    background-color: #5a7a66;
   }
