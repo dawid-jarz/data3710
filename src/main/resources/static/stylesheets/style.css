@@ -1,14 +1,39 @@
-body {
-    background-color: #7B9E87;
-}
 
 html, body { /*Dytter footeren til bunnen av siden*/
     height: 100%;
     margin: 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
   }
+body {
+  background-color: #7B9E87;
+}
+#navbar{
+  background-color: pink;
+  justify-content: space-between;
+  display: flex;
+}
+.navbar-left{
+  display: flex;
+  align-items: center;
+}
+.navbar-mid{
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 2%;
+}
+.navbar-right{
+  display: flex;
+  align-items: center;
+}
+.logo{
+  width: 20%;
+  width: 20%;
+}
 
+/*FOOTER*/
 footer { /* Footer styling */
     margin-top: auto;
     background-color: #004d2d;
@@ -29,4 +54,4 @@ footer { /* Footer styling */
     width: 20px;               
     height: 20px;
     transition: transform 0.2s;
-  }
+  } 
