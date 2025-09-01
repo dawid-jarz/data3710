@@ -1,4 +1,3 @@
-
 html, body { /*Dytter footeren til bunnen av siden*/
     height: 100%;
     margin: 0;
@@ -9,7 +8,7 @@ html, body { /*Dytter footeren til bunnen av siden*/
 body { /*Font, tekstfarge*/
   background-color: #F4F1DE;
   font-family: "Lato", sans-serif;
-  color: white;
+  color: black;
 }
 a{ /*Alt av href elementer*/
   text-decoration: none;
@@ -22,6 +21,7 @@ a{ /*Alt av href elementer*/
   display: flex;
   position: relative;
   align-items: center;
+  color: white;
 }
 .navbar-left{
   display: flex;
@@ -57,7 +57,7 @@ a{ /*Alt av href elementer*/
 #button-burger{
   display: none;  
 }
-@media (max-width: 1190px) {
+@media (max-width: 1205px) {
   .navbar-left li{
     display: none;
   }

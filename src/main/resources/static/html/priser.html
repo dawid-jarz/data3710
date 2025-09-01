@@ -4,28 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../stylesheets/style.css">
-    <link rel="stylesheet" href="../stylesheets/style2.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=person" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
     <link rel="icon" href="../img/lotte-logo(1).png" type="image/png" sizes="16x16">
-    <title>Priser | Bekkestua Kosthold og Livsstil</title>
+    <title>Bekkestua Kosthold og Livsstil</title>
 </head>
-<body class="priser-body">
+<body>
     <nav id="navbar">
         <ul class="navbar-left">
             <img src="../img/lotte-logo(1).png" alt="logo" class="logo">
+            <li>Bekkestua Kosthold & Livsstil</li>
         </ul>
         <ul class="navbar-mid">
-            <li>Hjem</li>
-            <li>Priser</li>
-            <li>Booking</li>
-            <li>Om</li>
-            <li>Kontakt</li>
-            <li>ProtiLean</li>
-            <li>Vektreduksjon</li>
-            <li>Mer</li>
+            <li><a href="../index.html">Hjem</a></li>
+            <li><a href="priser.html">Priser</a></li>
+            <li><a href="booking.html">Booking</a></li>
+            <li><a href="omlotte.html">Om</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+            <li><a href="protilean.html">ProtiLean</a></li>
+            <li><a href="protilean.html">Vektreduksjon</a></li>
+            <li>Mer
+                <ul class="dropdown-content">
+                    <li><a href="/samarbeid.html"></a>Samarbeid</li>
+                    <li><a href="/oss.html"></a>Hvorfor velge oss</li>
+                    <li><a href="/forventning.html"></a>Hva kan jeg forvente</li>
+                </ul>
+            </li>
         </ul>
         <ul class="navbar-right">
-            <span class="material-symbols-outlined">person</span>
+            <button id="person" onclick="location.href='min-side.html'"><span class="material-symbols-outlined">person</span></button>
+            <button id="button-burger"><span class="material-symbols-outlined" id="hamburger-menu">menu</span></button>
         </ul>
     </nav>
     <main class="priser-main">
