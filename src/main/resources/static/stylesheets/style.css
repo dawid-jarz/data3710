@@ -6,22 +6,22 @@ html, body { /*Dytter footeren til bunnen av siden*/
     display: flex;
     flex-direction: column;
   }
-body {
+body { /*Font, tekstfarge*/
   background-color: #F4F1DE;
   font-family: "Lato", sans-serif;
   color: white;
 }
-a{
+a{ /*Alt av href elementer*/
   text-decoration: none;
   color: white;
 }
+/*NAVBAR*/ 
 #navbar{
   background-color: #0A1128;
   justify-content: space-between;
   display: flex;
   position: relative;
   align-items: center;
-  color: white;
 }
 .navbar-left{
   display: flex;
@@ -87,7 +87,7 @@ a{
 /*FOOTER*/
 footer { /* Footer styling */
     margin-top: auto;
-    background-color: #0A1128;
+    background-color: #004d2d;
     color: white;
     text-align: center;
     padding: 0.5rem;
@@ -124,7 +124,7 @@ footer { /* Footer styling */
   #pris-container { /*Styler boksen til pris tabellen*/
     width: 100%;
     max-width: 900px;
-    margin 0 auto;
+    margin: 0 auto;
     background-color: #fff;
     border-radius: 8px;
     padding: 20px;
@@ -151,10 +151,10 @@ footer { /* Footer styling */
   #pris-table .underoverskrift-prisliste td { /*Setter inn underoverskrift i pris tabellen*/
     background-color: #f9f9f9;
     font-weight: bold;
-    text-align: :left;
+    text-align: left;
     border-top: 2px solid #ccc;
     padding-top: 0.5rem;
-  }
+  } 
 
   .pris-bestilling { /*Gå fra pris til bestilling overskrift*/
     text-align: center;
