@@ -234,3 +234,44 @@ footer { /* Footer styling */
   #bestill-knap:hover { /*endrer knappens farge ved hovering*/
     background-color: #5a7a66;
   }
+
+  /*ProtiLean.html*/
+  #proti-container { /*Styler boksen til ProtiLean siden*/
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: #0A1128;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+    color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .proti-main { /*Sørger for at tabellen kommer under overskriften*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 70vh; 
+  }
+
+  .proti-links { /* Lager gap mellom knappene */
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+  }
+  
+  .proti-knapp { /*Design av knappen som tar deg til eurodiet og protilean */
+    background-color: #fff;
+    color: black;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
