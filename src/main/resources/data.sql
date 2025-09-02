@@ -4,3 +4,4 @@ INSERT INTO åpnings_tider (ukedag, åpen_tid, steng_tid) VALUES
 (3, '10:00', '20:00'),
 (4, '12:00', '16:30'), 
 (5, '10:00', '16:30');
+
