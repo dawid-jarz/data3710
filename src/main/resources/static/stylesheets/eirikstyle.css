@@ -4,6 +4,7 @@ root, * {
     --secondary-color: #b6be9c;
     --navbar-color: #004F2D;
     --navbar-hover-color: #939070;
+    font-family: "Lato", sans-serif;
 }
 
 nav {
