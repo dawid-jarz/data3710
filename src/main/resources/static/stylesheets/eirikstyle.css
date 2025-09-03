@@ -1,0 +1,16 @@
+root, * {
+    all: unset;
+    --main-bg-color: #d2d0ba;
+    --secondary-color: #b6be9c;
+    --navbar-color: #004F2D;
+    --navbar-hover-color: #939070;
+}
+
+nav {
+    background-color: var(--navbar-color);
+    justify-content: space-between;
+    display: flex;
+    position: relative;
+    align-items: center;
+    color: white;
+}

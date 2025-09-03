@@ -116,14 +116,17 @@ a{ /*Alt av href elementer*/
   transition: transform .2s ease;
 }
 
+
+/* Responsive navbar */
 @media (max-width: 1205px) {
   .navbar-left li{
     display: none;
   }
   #button-burger{
-    display: none;  
+    display: none;
   }
 }
+
 @media (max-width: 830px){
   #hamburger-menu{
     display: flex;
@@ -142,6 +145,12 @@ a{ /*Alt av href elementer*/
     gap: 5%;
   }
 }
+
+@media (max-width: 360px) {
+  #hamburger-menu{}
+  #button-burger{}
+}
+
 
 /*FOOTER*/
 footer { /* Footer styling */
