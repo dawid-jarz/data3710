@@ -258,12 +258,6 @@ footer { /* Footer styling */
     justify-content: center;
     min-height: 70vh; 
   }
-
-  .proti-links { /* Lager gap mellom knappene */
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-  }
   
   .proti-knapp { /*Design av knappen som tar deg til eurodiet og protilean */
     background-color: #fff;
