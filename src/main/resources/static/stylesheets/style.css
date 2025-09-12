@@ -144,28 +144,91 @@ a{ /*Alt av href elementer*/
 }
 
 /*FOOTER*/
-footer { /* Footer styling */
-    margin-top: auto;
-    background-color: #0A1128;
-    color: white;
-    text-align: center;
-    padding: 0.5rem;
-    font-size: 0.85rem;
+footer {
+  background-color: #0A1128;
+  color: white;
+  padding: 2rem 1rem;
+  font-size: 0.9rem;
+
 }
 
-.footer-content { /*Innholdet i footeren*/
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.3rem;
-  }
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;         
+  justify-content: space-around; 
+  align-items: flex-start;
+  text-align: left;        
+  gap: 2rem;                
+  margin-bottom: 1.5rem;
+  padding: 0 100px;
+}
 
-  .social-logos img { /* Endre størrelsen på facebook ikonet */
-    width: 20px;               
-    height: 20px;
-    transition: transform 0.2s;
-    filter: brightness(0) invert(1);
-  } 
+.footer-section {
+  flex: 1 1 200px;         
+}
+
+.footer-section h4 {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-bottom: 1px solid #5a7a66;
+  padding-bottom: 0.25rem;
+  display: inline-block;
+}
+
+.footer-section p {
+  margin: 0.4rem 0;
+}
+
+.footer-section a {
+  color: #ddd;
+  text-decoration: none;
+}
+
+.footer-section a:hover {
+  color: #fff;
+}
+
+.footer-section img {
+  width: 25px;
+  height: 25px;
+  filter: brightness(0) invert(1);
+  transition: transform 0.2s;
+}
+
+.footer-section img:hover {
+  transform: scale(1.2);
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 0.8rem;
+  border-top: 1px solid #333;
+  padding-top: 0.8rem;
+  color: #bbb;
+}
+
+.social-icons {
+  display: flex;
+  gap: 12px;               
+  margin-top: 0.5rem;
+}
+
+.social-icons a {
+  display: inline-block;
+}
+
+.social-icons img {
+  width: 25px;
+  height: 25px;
+  filter: brightness(0) invert(1);
+  transition: transform 0.2s;
+}
+
+.social-icons img:hover {
+  transform: scale(1.2);
+}
+
 
 
   /*Priser.html*/
