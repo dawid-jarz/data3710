@@ -156,6 +156,7 @@ footer { /* Footer styling */
     background-color: var(--footer-color);
     color: white;
     font-size: 0.85rem;
+    width: 100%;
 }
 
 .footer-container {
@@ -258,8 +259,6 @@ Magnus
   transform: scale(1.2);
 }
 
-
-
   /*Priser.html*/
 
   .priser-body { /* Gjør siden til flex og sørger for at tekstfargen er sort*/
@@ -360,4 +359,59 @@ Magnus
     font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
+  }
+  /*Booking*/
+  .main-content-booking{
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  .headline-booking{
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .container-booking{
+    display: flex;
+    justify-content: space-evenly;
+    gap: 5rem;
+  }
+  .online-booking{
+    background-color: white;
+    width: 650px;
+    text-align: center;
+    align-items: center;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+  }
+  .booking{
+    background-color: white;
+    width: 650px;
+    text-align: center;
+    align-items: center;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+  }
+  @media (max-width: 739px){
+    .container-booking{
+      display: block;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .online-booking{
+      max-width: fit-content;
+    }
+    .booking{
+      max-width: fit-content;
+    }
+  }
+  @media (max-width: 356px){
+    .container-booking{
+      width: 255.867px;
+      justify-content: space-between;
+    }
+    .main-content-booking{
+      
+    }
   }
