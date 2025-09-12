@@ -7,8 +7,8 @@ html, body { /*Dytter footeren til bunnen av siden*/
     padding: 0;
     display: flex;
     flex-direction: column;
-    --background-color: #FEFAE0;
-    --navbar-bg-color: #5B8E7D;
+    --background-color: #d7e6b4;
+    --navbar-bg-color: #6a9971;
     --text-color: ;
     --contrast: ;
     --footer-color: ;
