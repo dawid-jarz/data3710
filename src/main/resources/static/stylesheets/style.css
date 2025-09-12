@@ -6,7 +6,7 @@ html, body { /*Dytter footeren til bunnen av siden*/
     display: flex;
     flex-direction: column;
     --background-color: #95BF74;
-    --navbar-bg-color: #99DDC8;
+    --navbar-bg-color: #6a9971;
     --text-color: ;
     --contrast: ;
     --footer-color: #6a9971;
