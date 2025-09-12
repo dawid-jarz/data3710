@@ -11,7 +11,7 @@ html, body { /*Dytter footeren til bunnen av siden*/
     --navbar-bg-color: #6a9971;
     --text-color: ;
     --contrast: ;
-    --footer-color: ;
+    --footer-color: #6a9971;
 
 }
 body { /*Font, tekstfarge*/
