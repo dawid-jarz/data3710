@@ -1,12 +1,21 @@
+root {
+  }
+
 html, body { /*Dytter footeren til bunnen av siden*/
     height: 100%;
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
-  }
+    --background-color: #FEFAE0;
+    --navbar-bg-color: #5B8E7D;
+    --text-color: ;
+    --contrast: ;
+    --footer-color: ;
+
+}
 body { /*Font, tekstfarge*/
-  background-color: #F4F1DE;
+  background-color: var(--background-color);
   font-family: "Lato", sans-serif;
   color: black;
 }
@@ -16,7 +25,7 @@ a{ /*Alt av href elementer*/
 }
 /*NAVBAR*/ 
 #navbar{
-  background-color: #0A1128;
+  background-color: var(--navbar-bg-color);
   justify-content: space-between;
   display: flex;
   position: relative;
@@ -48,7 +57,7 @@ a{ /*Alt av href elementer*/
 #person{
   border: none;
   fill: none;
-  background-color: #0A1128;
+  background-color: var(--navbar-bg-color);
   color: white;
 }
 #hamburger-menu{
@@ -76,7 +85,7 @@ a{ /*Alt av href elementer*/
   padding: 8px 0;
 
   min-width: 180px;
-  background-color: #0A1128;
+  background-color: var(--navbar-bg-color);
   border-radius: 6px;
   box-shadow: 0 8px 16px rgba(0,0,0,0.2);
   z-index: 1000;
@@ -89,7 +98,7 @@ a{ /*Alt av href elementer*/
 .dropdown-content a {
   display: block;           
   padding: 10px 16px;
-  color: #fff;
+  color: white;
   text-decoration: none;
   white-space: nowrap;       
 }
@@ -101,7 +110,7 @@ a{ /*Alt av href elementer*/
 
 /* knappen "Mer" */
 #dropdown-arrow{
-  background: #0A1128;
+  background: var(--navbar-bg-color);
   border: none;
   color: white;
   display: flex;
@@ -132,7 +141,7 @@ a{ /*Alt av href elementer*/
     display: flex;
     border: none;
     fill: none;
-    background-color: #0A1128;
+    background-color: var(--navbar-bg-color);
     color: white;
   }
   .navbar-mid{
@@ -144,11 +153,11 @@ a{ /*Alt av href elementer*/
 }
 
 /*FOOTER*/
-footer {
-  background-color: #0A1128;
-  color: white;
-  font-size: 0.9rem;
-  margin-top: auto;
+footer { /* Footer styling */
+    margin-top: auto;
+    background-color: var(--footer-color);
+    color: white;
+    font-size: 0.85rem;
 }
 
 .footer-container {
@@ -235,7 +244,7 @@ h4 {
   gap: 12px;               
   margin-top: 0.5rem;
 }
-
+Magnus
 .social-icons a {
   display: inline-block;
 }
@@ -270,7 +279,7 @@ h4 {
     width: 100%;
     max-width: 900px;
     margin: 0 auto;
-    background-color: #fff;
+    background-color: white;
     border-radius: 8px;
     padding: 20px;
     box-shadow: 0 0 20px rgba(0,0,0,0.05);
@@ -306,7 +315,7 @@ h4 {
   }
   
   .bestill-knapp { /*Design av knappen som tar deg fra priser til bestilling*/
-    background-color: #0A1128;
+    background-color: var(--navbar-bg-color);
     color: white;
     border: none;
     padding: 12px 24px;
@@ -325,7 +334,7 @@ h4 {
     width: 100%;
     max-width: 900px;
     margin: 0 auto;
-    background-color: #0A1128;
+    background-color: var(--navbar-bg-color);
     border-radius: 8px;
     padding: 20px;
     box-shadow: 0 0 20px rgba(0,0,0,0.05);
