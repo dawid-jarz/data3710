@@ -147,9 +147,8 @@ a{ /*Alt av href elementer*/
 footer {
   background-color: #0A1128;
   color: white;
-  padding: 2rem 1rem;
   font-size: 0.9rem;
-
+  margin-top: auto;
 }
 
 .footer-container {
@@ -227,6 +226,7 @@ h4 {
   font-size: 0.8rem;
   border-top: 1px solid #333;
   padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
   color: #bbb;
 }
 
