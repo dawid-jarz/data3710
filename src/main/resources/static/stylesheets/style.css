@@ -1,5 +1,3 @@
-root {
-  }
 
 html, body { /*Dytter footeren til bunnen av siden*/
     height: 100%;
@@ -7,8 +5,8 @@ html, body { /*Dytter footeren til bunnen av siden*/
     padding: 0;
     display: flex;
     flex-direction: column;
-    --background-color: #d7e6b4;
-    --navbar-bg-color: #6a9971;
+    --background-color: #95BF74;
+    --navbar-bg-color: #99DDC8;
     --text-color: ;
     --contrast: ;
     --footer-color: #6a9971;
