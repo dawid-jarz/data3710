@@ -366,9 +366,10 @@ Magnus
     padding-right: 50px;
   }
   .headline-booking{
+    text-shadow: white;
     text-align: center;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 2rem;
+    padding-bottom: 3rem;
   }
   .container-booking{
     display: flex;
@@ -406,25 +407,31 @@ Magnus
   gap: 0.5rem;           
   white-space: nowrap;   
 }
+.online-booking p{
+  margin-top: 1rem;
+}
+.booking-knapp{
+    margin-top: 2rem;
+    background-color: var(--navbar-bg-color);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 1rem;
+    max-width: fit-content;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
   @media (max-width: 739px){
     .container-booking{
-      display: block;
+      display: flex;
       flex-direction: column;
       gap: 2rem;
+      margin-bottom: 2rem;
     }
-    .online-booking{
-      max-width: fit-content;
-    }
-    .booking{
-      max-width: fit-content;
-    }
-  }
-  @media (max-width: 356px){
-    .container-booking{
-      width: 255.867px;
-      justify-content: space-between;
-    }
-    .main-content-booking{
-      
+    .online-booking, .booking{
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
     }
   }
