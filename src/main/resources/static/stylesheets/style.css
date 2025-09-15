@@ -393,6 +393,19 @@ Magnus
     padding: 20px;
     box-shadow: 0 0 20px rgba(0,0,0,0.05);
   }
+ .kontakt-info-booking-container {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;    
+  gap: 0.5rem;            
+}
+
+.kontakt-info-booking {
+  display: flex;
+  align-items: center;   
+  gap: 0.5rem;           
+  white-space: nowrap;   
+}
   @media (max-width: 739px){
     .container-booking{
       display: block;
