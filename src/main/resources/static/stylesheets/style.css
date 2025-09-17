@@ -361,3 +361,7 @@ Magnus
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
+  /*om-siden*/
+  h1{
+    text-align: center;
+  }
