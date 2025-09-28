@@ -33,8 +33,21 @@
         </ul>
         <ul class="navbar-right">
             <button id="person" onclick="location.href='min-side.html'"><span class="material-symbols-outlined">person</span></button>
-            <button id="button-burger"><span class="material-symbols-outlined" id="hamburger-menu">menu</span></button>
+            <button id="button-burger" onclick="toggleMenu()"><span class="material-symbols-outlined" id="hamburger-menu">menu</span></button>
         </ul>
+        <div id="hamburger-overlay" class="overlay">
+            <a href="javascript:void(0)" class="closebtn" onclick="toggleMenu()">&times;</a>
+            <div class="overlay-content">
+                <a href="priser.html">Priser</a>
+                <a href="booking.html">Booking</a>
+                <a href="omlotte.html">Om</a>
+                <a href="kontakt.html">Kontakt</a>
+                <a href="samarbeid.html">Samarbeid</a>
+                <a href="protilean.html">Vektreduksjon</a>
+                <a href="oss.html">Hvorfor velge oss</a>
+                <a href="forventning.html">Hva kan jeg forvente</a>
+            </div>
+        </div>
     </nav>
 
     <main class="proti-main">

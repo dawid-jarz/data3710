@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
     <link rel="icon" href="img/lotte-logo(1).png" type="image/png" sizes="16x16">
+    <script src="scripts/script.js"></script>
     <title>Bekkestua Kosthold og Livsstil</title>
 </head>
 <body>
@@ -33,8 +34,21 @@
         </ul>
         <ul class="navbar-right">
             <button id="person" onclick="location.href='min-side.html'"><span class="material-symbols-outlined">person</span></button>
-            <button id="button-burger"><span class="material-symbols-outlined" id="hamburger-menu">menu</span></button>
+            <button id="button-burger" onclick="toggleMenu()"><span class="material-symbols-outlined" id="hamburger-menu">menu</span></button>
         </ul>
+        <div id="hamburger-overlay" class="overlay">
+          <a href="javascript:void(0)" class="closebtn" onclick="toggleMenu()">&times;</a>
+          <div class="overlay-content">
+            <a href="html/priser.html">Priser</a>
+            <a href="html/booking.html">Booking</a>
+            <a href="html/omlotte.html">Om</a>
+            <a href="html/kontakt.html">Kontakt</a>
+            <a href="html/samarbeid.html">Samarbeid</a>
+            <a href="html/protilean.html">Vektreduksjon</a>
+            <a href="html/oss.html">Hvorfor velge oss</a>
+            <a href="html/forventning.html">Hva kan jeg forvente</a>
+          </div>
+        </div>
     </nav>
 
     <main>

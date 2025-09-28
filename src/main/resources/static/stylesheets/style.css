@@ -124,6 +124,50 @@ a{ /*Alt av href elementer*/
   transform: scale(1.03);
   transition: transform .2s ease;
 }
+/*Hamburger-meny*/
+/* Fullscreen overlay */
+.overlay {
+  height: 100%;
+  width: 0; /* Skjult som default */
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  background-color: var(--navbar-bg-color);
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+/* Lukkeknapp (X) */
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 50px;
+  text-decoration: none;
+  color: white;
+}
+
+/* Meny-innhold */
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+}
+
+.overlay-content a {
+  padding: 15px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #f1f1f1;
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay-content a:hover {
+  color: #C0D684;
+}
 
 @media (max-width: 1205px) {
   .navbar-left li{
