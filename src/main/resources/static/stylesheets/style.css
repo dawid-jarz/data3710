@@ -5,11 +5,13 @@ html, body { /*Dytter footeren til bunnen av siden*/
     padding: 0;
     display: flex;
     flex-direction: column;
-    --background-color: #95BF74;
-    --navbar-bg-color: #6a9971;
+    --background-color: #F3F9D2;
+    --navbar-bg-color: #004777;
+   /*GRØNN BRUKT TIL FOOTER OG NAV BG TIDLIGERE #6a9971*/
+   /*GRØNN BRUKT SOM BAKGRUNNSFARGE TIDLIGERE #95BF74*/
     --text-color: ;
     --contrast: ;
-    --footer-color: #6a9971;
+    --footer-color: #004777;
 
 }
 body { /*Font, tekstfarge*/
