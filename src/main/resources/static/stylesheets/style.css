@@ -151,7 +151,7 @@ a{ /*Alt av href elementer*/
 /* Meny-innhold */
 .overlay-content {
   position: relative;
-  top: 25%;
+  top: 10%;
   width: 100%;
   text-align: center;
 }
