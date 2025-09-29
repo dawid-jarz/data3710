@@ -9,33 +9,80 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
     <link rel="icon" href="../img/lotte-logo(1).png" type="image/png" sizes="16x16">
+    <script src="../scripts/script.js"></script>
     <title>Booking | Bekkestua Kosthold og Livsstil</title>
 </head>
 <body>
     <nav id="navbar">
         <ul class="navbar-left">
             <li><a href="../index.html"><img src="../img/lotte-logo(1).png" alt="logo" class="logo"></a></li>
-            <li>Bekkestua Kosthold & Livsstil</li>
+            <li class="logo-tekst">Bekkestua Kosthold & Livsstil</li>
         </ul>
         <ul class="navbar-mid">
             <li><a href="priser.html">Priser</a></li>
             <li><a href="booking.html">Booking</a></li>
             <li><a href="omlotte.html">Om</a></li>
             <li><a href="kontakt.html">Kontakt</a></li>
+            <li><a href="samarbeid.html">Samarbeid</a></li>
             <li><a href="protilean.html">Vektreduksjon</a></li>
-            <li class="dropdown"><button id="dropdown-arrow">Mer <span class="material-symbols-outlined">arrow_drop_down</span></button>
+            <li class="dropdown">Mer<span class="material-symbols-outlined">arrow_drop_down</span>
                 <ul class="dropdown-content">
-                    <a href="./samarbeid.html">Samarbeid</a>
-                    <a href="./oss.html">Hvorfor velge oss</a>
-                    <a href="./forventning.html">Hva kan jeg forvente</a>
+                    <a href="oss.html">Hvorfor velge oss</a>
+                    <a href="forventning.html">Hva kan jeg forvente</a>
                 </ul>
             </li>
         </ul>
         <ul class="navbar-right">
             <button id="person" onclick="location.href='min-side.html'"><span class="material-symbols-outlined">person</span></button>
-            <button id="button-burger"><span class="material-symbols-outlined" id="hamburger-menu">menu</span></button>
+            <button id="button-burger" onclick="toggleMenu()"><span class="material-symbols-outlined" id="hamburger-menu">menu</span></button>
         </ul>
+        <div id="hamburger-overlay" class="overlay">
+            <a href="javascript:void(0)" class="closebtn" onclick="toggleMenu()">&times;</a>
+            <div class="overlay-content">
+                <a href="priser.html">Priser</a>
+                <a href="booking.html">Booking</a>
+                <a href="omlotte.html">Om</a>
+                <a href="kontakt.html">Kontakt</a>
+                <a href="samarbeid.html">Samarbeid</a>
+                <a href="protilean.html">Vektreduksjon</a>
+                <a href="oss.html">Hvorfor velge oss</a>
+                <a href="forventning.html">Hva kan jeg forvente</a>
+            </div>
+        </div>
     </nav>
+    
+    <main>
+      <div class="main-content-booking">
+        
+        <div class="headline-booking">
+          <h1>Timebooking hos Bekkestua Kosthold og Livsstil</h1>
+        </div>
+      <div class="container-booking">
+        <div class="online-booking">
+            <h1>Online Booking</h1>
+            <p>Ved å trykke på knappen under kan du booke en time som er tilpasset dine behov.</p>
+            <button onclick="bookTime()" class="booking-knapp">Book time her</button>
+        </div>
+        
+        <div class="booking">
+          <h1>Finner du ingenting som passer dine behov?</h1>
+          <p>Hos oss kan du også booke en time ved å sende melding og beksrive dine behov, slik at vi kan tilpasse en time til dine behov.</p>
+          <div class="kontakt-info-booking-container">  
+            <div class="kontakt-info-booking">
+              <span class="material-symbols-outlined" id="telefon-b">phone</span>
+                <p>+47 995 21 358</p>
+            </div>
+            <div class="kontakt-info-booking">    
+              <span class="material-symbols-outlined" id="epost-b">mail</span>
+                <p>bekkestuakosthold@gmail.com</p>
+            </div>    
+          </div>
+          </div>
+        </div>
+      </div>
+
+      </div>
+    </main>
 
     <footer>
         <div class="footer-container">
