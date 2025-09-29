@@ -64,7 +64,17 @@ a{ /*Alt av href elementer*/
   display: none;
 }
 #button-burger{
-  display: none;  
+  display: none; 
+}
+#button-burger:hover, #person:hover{
+  transform: scale(1.1);
+  transition: transform .2s ease;
+  cursor: pointer;
+}
+.overlay-content a:hover, .navbar-mid li a:hover{
+  transform: scale(1.1);
+  transition: transform .2s ease;
+  cursor: pointer;
 }
 /*dropdown-content*/
 .dropdown {
