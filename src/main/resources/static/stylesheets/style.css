@@ -191,6 +191,7 @@ a{ /*Alt av href elementer*/
   color: #C0D684;
 }
 
+
 @media (max-width: 1205px) {
   .navbar-left a{
     display: block;
@@ -203,13 +204,8 @@ a{ /*Alt av href elementer*/
   }
 }
 @media (max-width: 830px){
-  .navbar-left li a{
-    display: none;
-  } 
   .navbar-left li{
     display: flex;
-    padding-left: 0;
-    font-size: medium;
   }
   #hamburger-menu{
     display: flex;
@@ -226,6 +222,22 @@ a{ /*Alt av href elementer*/
   }
   .navbar-right{
     gap: 5%;
+  }
+}
+@media (max-width: 627px){
+  .navbar-left li a{
+    display: none;
+  } 
+  .navbar-left li{
+    display: flex;
+    padding-left: 0;
+    font-size: large;
+  }
+  .navbar-left li:hover{
+    transform: scale(1.1);
+    transition: transform .2s ease;
+    cursor: pointer;
+    color: #C0D684;
   }
 }
 
