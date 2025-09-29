@@ -170,8 +170,11 @@ a{ /*Alt av href elementer*/
 }
 
 @media (max-width: 1205px) {
-  .navbar-left li{
-    display: none;
+  .navbar-left a{
+    display: block;
+  }
+  .logo-tekst{
+   display: none;
   }
   #button-burger{
     display: none;  
