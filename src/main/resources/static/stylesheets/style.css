@@ -71,15 +71,27 @@ a{ /*Alt av href elementer*/
   transition: transform .2s ease;
   cursor: pointer;
 }
-.overlay-content a:hover, .navbar-mid li a:hover{
+.overlay-content a:hover, .navbar-mid li:hover{
   transform: scale(1.1);
   transition: transform .2s ease;
   cursor: pointer;
 }
+.navbar-mid li a:hover{
+  color: #C0D684;
+}
+#person:hover, #button-burger:hover{
+  color: #C0D684;
+}
 /*dropdown-content*/
 .dropdown {
   position: relative;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+}
+.dropdown:hover{
+  color: #C0D684;
 }
 
 /* Dropdown menyen */
