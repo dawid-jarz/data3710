@@ -178,6 +178,14 @@ a{ /*Alt av href elementer*/
   }
 }
 @media (max-width: 830px){
+  .navbar-left li a{
+    display: none;
+  } 
+  .navbar-left li{
+    display: flex;
+    padding-left: 0;
+    font-size: medium;
+  }
   #hamburger-menu{
     display: flex;
   }
