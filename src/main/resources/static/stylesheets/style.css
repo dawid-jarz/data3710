@@ -64,12 +64,34 @@ a{ /*Alt av href elementer*/
   display: none;
 }
 #button-burger{
-  display: none;  
+  display: none; 
+}
+#button-burger:hover, #person:hover{
+  transform: scale(1.1);
+  transition: transform .2s ease;
+  cursor: pointer;
+}
+.overlay-content a:hover, .navbar-mid li:hover{
+  transform: scale(1.1);
+  transition: transform .2s ease;
+  cursor: pointer;
+}
+.navbar-mid li a:hover{
+  color: #C0D684;
+}
+#person:hover, #button-burger:hover{
+  color: #C0D684;
 }
 /*dropdown-content*/
 .dropdown {
   position: relative;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+}
+.dropdown:hover{
+  color: #C0D684;
 }
 
 /* Dropdown menyen */
@@ -169,22 +191,21 @@ a{ /*Alt av href elementer*/
   color: #C0D684;
 }
 
+
 @media (max-width: 1205px) {
-  .navbar-left li{
-    display: none;
+  .navbar-left a{
+    display: block;
+  }
+  .logo-tekst{
+   display: none;
   }
   #button-burger{
     display: none;  
   }
 }
 @media (max-width: 830px){
-  .navbar-left li a{
-    display: none;
-  } 
   .navbar-left li{
     display: flex;
-    padding-left: 0;
-    font-size: medium;
   }
   #hamburger-menu{
     display: flex;
@@ -201,6 +222,22 @@ a{ /*Alt av href elementer*/
   }
   .navbar-right{
     gap: 5%;
+  }
+}
+@media (max-width: 627px){
+  .navbar-left li a{
+    display: none;
+  } 
+  .navbar-left li{
+    display: flex;
+    padding-left: 0;
+    font-size: large;
+  }
+  .navbar-left li:hover{
+    transform: scale(1.1);
+    transition: transform .2s ease;
+    cursor: pointer;
+    color: #C0D684;
   }
 }
 

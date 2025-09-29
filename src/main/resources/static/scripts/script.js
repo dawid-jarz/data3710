@@ -11,3 +11,14 @@ function toggleMenu() {
     menu.style.width = "100%";
   }
 }
+  document.addEventListener("DOMContentLoaded", () => {
+  const home = document.querySelector(".logo-tekst");
+
+  if (home) {
+    home.addEventListener("click", () => {
+      if (window.innerWidth <= 627) {
+        window.location.href = "../index.html";
+      }
+    });
+  }
+});
