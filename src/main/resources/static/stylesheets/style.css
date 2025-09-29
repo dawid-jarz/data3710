@@ -5,11 +5,13 @@ html, body { /*Dytter footeren til bunnen av siden*/
     padding: 0;
     display: flex;
     flex-direction: column;
-    --background-color: #95BF74;
-    --navbar-bg-color: #6a9971;
+    --background-color: #F3F9D2;
+    --navbar-bg-color: #004777;
+   /*GRØNN BRUKT TIL FOOTER OG NAV BG TIDLIGERE #6a9971*/
+   /*GRØNN BRUKT SOM BAKGRUNNSFARGE TIDLIGERE #95BF74*/
     --text-color: ;
     --contrast: ;
-    --footer-color: #6a9971;
+    --footer-color: #004777;
 
 }
 body { /*Font, tekstfarge*/
@@ -122,6 +124,50 @@ a{ /*Alt av href elementer*/
   transform: scale(1.03);
   transition: transform .2s ease;
 }
+/*Hamburger-meny*/
+/* Fullscreen overlay */
+.overlay {
+  height: 100%;
+  width: 0; /* Skjult som default */
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  background-color: var(--navbar-bg-color);
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+/* Lukkeknapp (X) */
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 50px;
+  text-decoration: none;
+  color: white;
+}
+
+/* Meny-innhold */
+.overlay-content {
+  position: relative;
+  top: 10%;
+  width: 100%;
+  text-align: center;
+}
+
+.overlay-content a {
+  padding: 15px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #f1f1f1;
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay-content a:hover {
+  color: #C0D684;
+}
 
 @media (max-width: 1205px) {
   .navbar-left li{
@@ -132,6 +178,14 @@ a{ /*Alt av href elementer*/
   }
 }
 @media (max-width: 830px){
+  .navbar-left li a{
+    display: none;
+  } 
+  .navbar-left li{
+    display: flex;
+    padding-left: 0;
+    font-size: medium;
+  }
   #hamburger-menu{
     display: flex;
   }
@@ -156,6 +210,7 @@ footer { /* Footer styling */
     background-color: var(--footer-color);
     color: white;
     font-size: 0.85rem;
+    width: 100%;
 }
 
 .footer-container {
@@ -258,8 +313,6 @@ Magnus
   transform: scale(1.2);
 }
 
-
-
   /*Priser.html*/
 
   .priser-body { /* Gjør siden til flex og sørger for at tekstfargen er sort*/
@@ -360,4 +413,79 @@ Magnus
     font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
+  }
+  /*Booking*/
+  .main-content-booking{
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  .headline-booking{
+    text-shadow: white;
+    text-align: center;
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+  }
+  .container-booking{
+    display: flex;
+    justify-content: space-evenly;
+    gap: 5rem;
+  }
+  .online-booking{
+    background-color: white;
+    width: 650px;
+    text-align: center;
+    align-items: center;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+  }
+  .booking{
+    background-color: white;
+    width: 650px;
+    text-align: center;
+    align-items: center;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+  }
+ .kontakt-info-booking-container {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;    
+  gap: 0.5rem;            
+}
+
+.kontakt-info-booking {
+  display: flex;
+  align-items: center;   
+  gap: 0.5rem;           
+  white-space: nowrap;   
+}
+.online-booking p{
+  margin-top: 1rem;
+}
+.booking-knapp{
+    margin-top: 2rem;
+    background-color: var(--navbar-bg-color);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 1rem;
+    max-width: fit-content;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+  @media (max-width: 739px){
+    .container-booking{
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    .online-booking, .booking{
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
   }
