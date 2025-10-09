@@ -9,48 +9,101 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
     <link rel="icon" href="../img/lotte-logo(1).png" type="image/png" sizes="16x16">
-    <script src="../scripts/script.js"></script>
     <title>Bekkestua Kosthold og Livsstil</title>
 </head>
 <body>
     <nav id="navbar">
         <ul class="navbar-left">
             <li><a href="../index.html"><img src="../img/lotte-logo(1).png" alt="logo" class="logo"></a></li>
-            <li class="logo-tekst">Bekkestua Kosthold & Livsstil</li>
+            <li>Bekkestua Kosthold & Livsstil</li>
         </ul>
         <ul class="navbar-mid">
             <li><a href="priser.html">Priser</a></li>
             <li><a href="booking.html">Booking</a></li>
             <li><a href="omlotte.html">Om</a></li>
             <li><a href="kontakt.html">Kontakt</a></li>
-            <li><a href="samarbeid.html">Samarbeid</a></li>
             <li><a href="protilean.html">Vektreduksjon</a></li>
-            <li class="dropdown">Mer<span class="material-symbols-outlined">arrow_drop_down</span>
+            <li>Mer
                 <ul class="dropdown-content">
-                    <a href="oss.html">Hvorfor velge oss</a>
-                    <a href="forventning.html">Hva kan jeg forvente</a>
+                    <li><a href="./samarbeid.html"></a>Samarbeid</li>
+                    <li><a href="./oss.html"></a>Hvorfor velge oss</li>
+                    <li><a href="./forventning.html"></a>Hva kan jeg forvente</li>
                 </ul>
             </li>
         </ul>
         <ul class="navbar-right">
             <button id="person" onclick="location.href='min-side.html'"><span class="material-symbols-outlined">person</span></button>
-            <button id="button-burger" onclick="toggleMenu()"><span class="material-symbols-outlined" id="hamburger-menu">menu</span></button>
+            <button id="button-burger"><span class="material-symbols-outlined" id="hamburger-menu">menu</span></button>
         </ul>
-        <div id="hamburger-overlay" class="overlay">
-            <a href="javascript:void(0)" class="closebtn" onclick="toggleMenu()">&times;</a>
-            <div class="overlay-content">
-                <a href="priser.html">Priser</a>
-                <a href="booking.html">Booking</a>
-                <a href="omlotte.html">Om</a>
-                <a href="kontakt.html">Kontakt</a>
-                <a href="samarbeid.html">Samarbeid</a>
-                <a href="protilean.html">Vektreduksjon</a>
-                <a href="oss.html">Hvorfor velge oss</a>
-                <a href="forventning.html">Hva kan jeg forvente</a>
-            </div>
-        </div>
     </nav>
-
+    <main>
+      <section class="contact-topp">
+        <h1>Kontakt oss</h1>
+        <p>
+          Vi holder til i <strong>Bærumsveien 207</strong>, 2. etasje på Bekkestua.
+          Send oss gjerne en melding – vi svarer fortløpende.
+        </p>
+      </section>
+  
+      <section class="contact-wrap">
+        
+        <aside class="card contact-card" aria-label="Kontaktinformasjon">
+          <h2>Kom i kontakt</h2>
+  
+          <div class="contact-line">
+            <span class="material-symbols-outlined" aria-hidden="true">place</span>
+            <p>
+              Bærumsveien 207<br />
+              1357 Bekkestua<br />
+              2. etasje
+            </p>
+          </div>
+  
+          <div class="contact-line">
+            <span class="material-symbols-outlined" aria-hidden="true">mail</span>
+            <p><a class="contact-link" href="mailto:bekkestuakosthold@gmail.com">bekkestuakosthold@gmail.com</a></p>
+          </div>
+  
+          <div class="contact-line">
+            <span class="material-symbols-outlined" aria-hidden="true">call</span>
+            <p><a class="contact-link" href="tel:+4799521358">+47 995 21 358</a></p>
+          </div>
+  
+          <div class="contact-quick">
+            <button class="contact-secondary" type="button" data-copy="bekkestuakosthold@gmail.com">
+              Kopiér e-post
+            </button>
+            <a class="contact-secondary" href="https://maps.google.com/?q=Bærumsveien+207,+1357+Bekkestua" target="_blank" rel="noopener">Åpne i kart</a>
+          </div>
+        </aside>
+  
+       
+        <section class="card contact-hero" aria-label="Åpningstider">
+          <h2>Åpningstider</h2>
+          <ul class="contact-hours">
+            <li><strong>Mandag:</strong> 10:00–16:30</li>
+            <li><strong>Tirsdag:</strong> 12:00–16:30</li>
+            <li><strong>Onsdag:</strong> 10:00–20:00</li>
+            <li><strong>Torsdag:</strong> 12:00–16:30</li>
+            <li><strong>Fredag:</strong> 10:00–16:30</li>
+          </ul>
+          <p>Avtal gjerne tid på forhånd for best oppfølging.</p>
+          <p>Fleksible åpningstider ved behov.</p>
+        </section>
+  
+        
+        <div class="contact-toast" id="contactToast" role="status" aria-live="polite" hidden></div>
+      </section>
+  
+      <section class="contact-map" aria-label="Kart til Bekkestua Kosthold & Livsstil">
+        <iframe
+          title="Kart: Bærumsveien 207, 1357 Bekkestua"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=B%C3%A6rumsveien%20207%2C%201357%20Bekkestua&output=embed">
+        </iframe>
+      </section>
+    </main>
     <footer>
         <div class="footer-container">
           <div class="adresse">
