@@ -871,6 +871,7 @@ h4 {
     
     .contact-map {
       padding: 0 clamp(1rem, 5vw, 6rem) 3rem;
+      margin-top: 2rem;
     }
     .contact-map iframe {
       width: 100%;
