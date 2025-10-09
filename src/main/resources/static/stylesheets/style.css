@@ -842,9 +842,9 @@ Magnus
       margin: 0 auto;
       max-width: 800px;
       line-height: 1.6;
+      color: black;
     }
     
- 
     .contact-wrap {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -858,18 +858,18 @@ Magnus
       }
     }
     
-    
+   
     .contact-card,
     .contact-hero {
-      background: linear-gradient(180deg, rgba(10, 34, 57, 0.92), rgba(10, 34, 57, 0.86));
-      color: #fff; 
+      background: white;
+      color: black;
       border-radius: 16px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
       padding: clamp(1rem, 2.5vw, 2rem);
     }
     
-
+    
     .contact-card h2 {
       margin: 0 0 0.5rem 0;
       font-weight: 800;
@@ -880,27 +880,28 @@ Magnus
       gap: 0.75rem;
       align-items: start;
       padding: 0.85rem 0;
-      border-bottom: 1px dashed rgba(255, 255, 255, 0.16);
+      border-bottom: 1px dashed rgba(0, 0, 0, 0.15);
     }
     .contact-line:last-of-type {
       border-bottom: 0;
     }
     .contact-line .material-symbols-outlined {
       font-size: 22px;
-      opacity: 0.9;
+      color: var(--navbar-bg-color);
     }
     .contact-link {
-      color: #fff;
+      color: var(--navbar-bg-color);
       text-decoration: underline;
       text-underline-offset: 3px;
+      font-weight: 600;
     }
     .contact-link:hover,
     .contact-link:focus-visible {
       color: var(--hover-color);
     }
     
-
-    .contact-quick {
+    
+    .contact-btns {
       display: flex;
       gap: 0.6rem;
       flex-wrap: wrap;
@@ -908,9 +909,9 @@ Magnus
     }
     .contact-secondary {
       appearance: none;
-      border: 1px solid rgba(255, 255, 255, 0.35);
+      border: 1px solid var(--navbar-bg-color);
       background: transparent;
-      color: #fff;
+      color: var(--navbar-bg-color);
       padding: 0.6rem 0.9rem;
       border-radius: 10px;
       font-weight: 700;
@@ -920,12 +921,13 @@ Magnus
     .contact-secondary:hover,
     .contact-secondary:focus-visible {
       transform: translateY(-1px);
-      border-color: rgba(255, 255, 255, 0.55);
-      background-color: rgba(255, 255, 255, 0.08);
+      background-color: var(--hover-color);
+      color: white;
+      border-color: var(--hover-color);
       outline: none;
     }
     
-
+   
     .contact-hero h2 {
       margin: 0 0 0.75rem 0;
       font-weight: 800;
@@ -940,13 +942,13 @@ Magnus
       margin: 0.25rem 0;
     }
     
-    
+   
     .contact-toast {
       position: fixed;
       left: 50%;
       bottom: 28px;
       transform: translateX(-50%);
-      background: #0b1724;
+      background: var(--navbar-bg-color);
       color: #fff;
       border: 1px solid rgba(255, 255, 255, 0.12);
       padding: 0.7rem 1rem;
@@ -955,6 +957,7 @@ Magnus
       z-index: 1200;
     }
     
+    /* Kart-seksjonen */
     .contact-map {
       padding: 0 clamp(1rem, 5vw, 6rem) 3rem;
     }
