@@ -425,11 +425,11 @@ h4 {
     width: 100%;
     max-width: 900px;
     margin: 0 auto;
-    background-color: var(--navbar-bg-color);
+    background-color: #fff;
     border-radius: 8px;
     padding: 20px;
     box-shadow: 0 0 20px rgba(0,0,0,0.05);
-    color: white;
+    color: black;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -445,8 +445,8 @@ h4 {
   }
   
   .proti-knapp { /*Design av knappen som tar deg til eurodiet og protilean */
-    background-color: #fff;
-    color: black;
+    background-color: var(--navbar-bg-color);
+    color: white;
     border: none;
     padding: 12px 24px;
     border-radius: 6px;
