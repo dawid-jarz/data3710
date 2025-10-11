@@ -360,22 +360,6 @@ h4 {
 
   /*Priser.html*/
 
-  .pris-main { /*Sørger for at tabellen kommer under overskriften*/
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  #pris-container{ /*Styler boksen til pris tabellen*/
-    width: 100%;
-    max-width: 900px;
-    margin: 0 auto;
-    background-color: white;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.05);
-  }
-
   #pris-table { /*Styler selve pris tabellen*/
     width: 100%;
     border-collapse: collapse;
