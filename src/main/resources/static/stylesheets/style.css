@@ -433,25 +433,9 @@ h4 {
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
+
   /*Booking*/
 
-  .headline-booking{
-    text-shadow: white;
-    text-align: center;
-    padding-top: 2rem;
-    padding-bottom: 3rem;
-  }
-
-  .online-booking{
-    background-color: white;
-    width: 650px;
-    text-align: center;
-    align-items: center;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.05);
-  }
-  
  .kontakt-info-booking-container {
   display: flex;
   flex-direction: column; 
@@ -465,9 +449,7 @@ h4 {
   gap: 0.5rem;           
   white-space: nowrap;   
 }
-.online-booking p{
-  margin-top: 1rem;
-}
+
 .booking-knapp{
     margin-top: 2rem;
     background-color: var(--navbar-bg-color);
@@ -480,19 +462,8 @@ h4 {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
-  @media (max-width: 739px){
-    .container-booking{
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      margin-bottom: 2rem;
-    }
-    .online-booking, .booking{
-      width: 100%;
-      max-width: 100%;
-      box-sizing: border-box;
-    }
-  }
+
+
 /*INDEX MAIN CONTENT*/
 .top-main {
   position: relative; /* gjør at tekst kan plasseres oppå bildet */
@@ -671,6 +642,20 @@ h4 {
     box-sizing: border-box;
   }
 
+  @media (max-width: 739px) {
+    .en-container {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+
+  .headline {
+    text-align: center;
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+  }
+
 
   /* Dobbel boks sider oppsett */
   .dobbel-main{ /*Sørger for at boksene kommer under overskriften*/
@@ -704,44 +689,30 @@ h4 {
     box-shadow: 0 0 20px rgba(0,0,0,0.05);
   }
 
-  /*om-siden*/
-  h1{
-    text-align: center;
-  }
- 
-  @media (max-width: 739px) {
-    .omoss-content {
+  @media (max-width: 739px){
+    .dobbel-container{
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    .container-en, .container-to{
       width: 100%;
       max-width: 100%;
+      box-sizing: border-box;
     }
   }
+
+
+  /*om-siden*/
   .omoss-content p {
     margin-bottom: 1rem;
     line-height: 1.6;
   }
-
-  .omoss-headline {
-    text-align: center;
-    padding-top: 2rem;
-    padding-bottom: 3rem;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-  }
  
     /*Samarbeid*/
-    
-    .samarbeid-headline {
-      text-align: center;
-      padding-top: 2rem;
-      padding-bottom: 3rem;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-    }
-    
-    @media (max-width: 739px) {
-      .samarbeid-content {
-        width: 100%;
-        max-width: 100%;
-      }
-    }
+
+
   
     /* KONTAKT */
     .contact-line {
