@@ -23,33 +23,3 @@ function toggleMenu() {
   }
 });
 
-
-
-(function () {
-  const btn = document.querySelector('.contact-secondary[data-copy]');
-  const toast = document.getElementById('contactToast');
-  if (!btn || !toast) return;
-
-  async function copyAddress() {
-    const text = btn.getAttribute('data-copy');
-    try {
-      await navigator.clipboard.writeText(text);
-      showToast('E-postadresse kopiert ✅');
-    } catch {
-      showToast('Klarte ikke å kopiere. Prøv igjen.');
-    }
-  }
-  function showToast(message) {
-    toast.textContent = message;
-    toast.hidden = false;
-    clearTimeout(showToast.tid);
-    showToast.tid = setTimeout(() => (toast.hidden = true), 2200);
-  }
-  btn.addEventListener('click', copyAddress);
-  btn.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      copyAddress();
-    }
-  });
-})();

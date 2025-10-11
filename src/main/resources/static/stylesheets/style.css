@@ -24,6 +24,11 @@ a{ /*Alt av href elementer*/
   text-decoration: none;
   color: white;
 }
+
+main {
+  flex: 1;
+}
+
 /*NAVBAR*/ 
 #navbar{
   background-color: var(--navbar-bg-color);
@@ -355,18 +360,13 @@ h4 {
 
   /*Priser.html*/
 
-  .priser-body { /* Gjør siden til flex og sørger for at tekstfargen er sort*/
-    display: flex;
-    color: black;
-  }
-
-  .priser-main { /*Sørger for at tabellen kommer under overskriften*/
+  .pris-main { /*Sørger for at tabellen kommer under overskriften*/
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
-  #pris-container { /*Styler boksen til pris tabellen*/
+  #pris-container{ /*Styler boksen til pris tabellen*/
     width: 100%;
     max-width: 900px;
     margin: 0 auto;
@@ -421,28 +421,7 @@ h4 {
   }
 
   /*ProtiLean.html*/
-  #proti-container { /*Styler boksen til ProtiLean siden*/
-    width: 100%;
-    max-width: 900px;
-    margin: 0 auto;
-    background-color: #fff;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.05);
-    color: black;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .proti-main { /*Sørger for at tabellen kommer under overskriften*/
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 70vh; 
-  }
+ 
   
   .proti-knapp { /*Design av knappen som tar deg til eurodiet og protilean */
     background-color: var(--navbar-bg-color);
@@ -455,21 +434,14 @@ h4 {
     transition: background-color 0.3s ease;
   }
   /*Booking*/
-  .main-content-booking{
-    padding-left: 50px;
-    padding-right: 50px;
-  }
+
   .headline-booking{
     text-shadow: white;
     text-align: center;
     padding-top: 2rem;
     padding-bottom: 3rem;
   }
-  .container-booking{
-    display: flex;
-    justify-content: space-evenly;
-    gap: 5rem;
-  }
+
   .online-booking{
     background-color: white;
     width: 650px;
@@ -479,15 +451,7 @@ h4 {
     padding: 20px;
     box-shadow: 0 0 20px rgba(0,0,0,0.05);
   }
-  .booking{
-    background-color: white;
-    width: 650px;
-    text-align: center;
-    align-items: center;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.05);
-  }
+  
  .kontakt-info-booking-container {
   display: flex;
   flex-direction: column; 
@@ -689,6 +653,57 @@ h4 {
 }
 */
 
+  /* Enkel boks sider oppsett (ikke priser)*/
+
+  .en-main { /*Sørger for at boksen kommer under overskriften*/
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
+  .en-container { /* Container for sider med kun èn "boks" */
+    background-color: white;
+    width: 650px;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+    box-sizing: border-box;
+  }
+
+
+  /* Dobbel boks sider oppsett */
+  .dobbel-main{ /*Sørger for at boksene kommer under overskriften*/
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
+  .dobbel-container{ /* Container for sider med to "bokser" */
+    display: flex;
+    justify-content: space-evenly;
+    gap: 5rem;
+  }
+
+  .container-en{ /* Venstre container for sider med to "bokser" */
+    background-color: white;
+    width: 650px;
+    text-align: center;
+    align-items: center;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+  }
+
+  .container-to{ /* Høyre container for sider med to "bokser" */
+    background-color: white;
+    width: 650px;
+    text-align: center;
+    align-items: center;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+  }
+
   /*om-siden*/
   h1{
     text-align: center;
@@ -704,78 +719,15 @@ h4 {
     margin-bottom: 1rem;
     line-height: 1.6;
   }
-    /*Samarbeid*/
 
-    .samarbeid-main {
-      padding-left: 50px;
-      padding-right: 50px;
-    }
-    
-    .samarbeid-headline {
-      text-align: center;
-      padding-top: 2rem;
-      padding-bottom: 3rem;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-    }
-    
-    .samarbeid-content {
-      background-color: white;
-      width: 650px;
-      margin: 0 auto;
-      text-align: center;
-      border-radius: 8px;
-      padding: 20px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.05);
-      box-sizing: border-box;
-    }
-    
-    @media (max-width: 739px) {
-      .samarbeid-content {
-        width: 100%;
-        max-width: 100%;
-      }
-    }
-  
-    /*Om */
-  .omoss-main {
-    padding-left: 50px;
-    padding-right: 50px;
-  }
-  
   .omoss-headline {
     text-align: center;
     padding-top: 2rem;
     padding-bottom: 3rem;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
   }
-  
-  .omoss-content {
-    background-color: white;
-    width: 650px;
-    margin: 0 auto;
-    text-align: center;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.05);
-    box-sizing: border-box;
-  }
-  
-  @media (max-width: 739px) {
-    .omoss-content {
-      width: 100%;
-      max-width: 100%;
-    }
-  }
-  .omoss-content p {
-    margin-bottom: 1rem;
-    line-height: 1.6;
-  }
+ 
     /*Samarbeid*/
-
-    .samarbeid-main {
-      padding-left: 50px;
-      padding-right: 50px;
-    }
     
     .samarbeid-headline {
       text-align: center;
@@ -784,29 +736,13 @@ h4 {
       text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
     }
     
-    .samarbeid-content {
-      background-color: white;
-      width: 650px;
-      margin: 0 auto;
-      text-align: center;
-      border-radius: 8px;
-      padding: 20px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.05);
-      box-sizing: border-box;
-    }
-    
     @media (max-width: 739px) {
       .samarbeid-content {
         width: 100%;
         max-width: 100%;
       }
     }
-    .samarbied-content p {
-      margin-bottom: 1rem;
-      line-height: 1.6;
-    }
-
-
+  
     /* KONTAKT */
     .contact-line {
       display: grid;
@@ -834,12 +770,12 @@ h4 {
       color: var(--hover-color);
     }
     
-    
     .contact-btns {
       display: flex;
       gap: 0.6rem;
       flex-wrap: wrap;
       margin-top: 1.1rem;
+      justify-content: center;
     }
     .contact-secondary {
       appearance: none;
