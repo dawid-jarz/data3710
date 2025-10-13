@@ -404,20 +404,6 @@ h4 {
     background-color: #5a7a66;
   }
 
-  /*ProtiLean.html*/
- 
-  
-  .proti-knapp { /*Design av knappen som tar deg til eurodiet og protilean */
-    background-color: var(--navbar-bg-color);
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 6px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-
   /*Booking*/
 
  .kontakt-info-booking-container {
@@ -432,19 +418,6 @@ h4 {
   align-items: center;   
   gap: 0.5rem;           
   white-space: nowrap;   
-}
-
-.booking-knapp{
-    margin-top: 2rem;
-    background-color: var(--navbar-bg-color);
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 6px;
-    font-size: 1rem;
-    max-width: fit-content;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
 
@@ -608,6 +581,29 @@ h4 {
 }
 */
 
+
+/* Felles ting*/
+
+.knapp{
+  margin-top: 2rem;
+  background-color: var(--navbar-bg-color);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 1rem;
+  max-width: fit-content;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.headline {
+  text-align: center;
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
   /* Enkel boks sider oppsett (ikke priser)*/
 
   .en-main { /*Sørger for at boksen kommer under overskriften*/
@@ -633,12 +629,7 @@ h4 {
     }
   }
 
-  .headline {
-    text-align: center;
-    padding-top: 2rem;
-    padding-bottom: 3rem;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-  }
+  
 
 
   /* Dobbel boks sider oppsett */
@@ -725,32 +716,6 @@ h4 {
       color: var(--hover-color);
     }
     
-    .contact-btns {
-      display: flex;
-      gap: 0.6rem;
-      flex-wrap: wrap;
-      margin-top: 1.1rem;
-      justify-content: center;
-    }
-    .contact-secondary {
-      appearance: none;
-      border: 1px solid var(--navbar-bg-color);
-      background: transparent;
-      color: var(--navbar-bg-color);
-      padding: 0.6rem 0.9rem;
-      border-radius: 10px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: transform 0.12s ease, background-color 0.12s ease, border-color 0.12s ease;
-    }
-    .contact-secondary:hover,
-    .contact-secondary:focus-visible {
-      transform: translateY(-1px);
-      background-color: var(--hover-color);
-      color: white;
-      border-color: var(--hover-color);
-      outline: none;
-    }
   
     .contact-hours {
       list-style: none;
