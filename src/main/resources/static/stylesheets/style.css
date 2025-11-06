@@ -5,14 +5,17 @@ html, body { /*Dytter footeren til bunnen av siden*/
     padding: 0;
     display: flex;
     flex-direction: column;
-    --background-color: #DCE0D9;
-    --navbar-bg-color: #0A2239;
+    /*--background-color: #DCE0D9;*/
+    --background-color: #c4bfab;
+    --navbar-bg-color: #325331;
+    /*--navbar-bg-color: #0A2239;*/
     --hover-color: #95BF74;
    /*GRØNN BRUKT TIL FOOTER OG NAV BG TIDLIGERE #6a9971*/
    /*GRØNN BRUKT SOM BAKGRUNNSFARGE TIDLIGERE #95BF74*/
     --text-color: ;
     --contrast: ;
-    --footer-color: #0A2239;
+   /* --footer-color: #0A2239;*/
+    --footer-color: #325331;
     overscroll-behavior: none;
 }
 body { /*Font, tekstfarge*/
