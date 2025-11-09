@@ -480,6 +480,19 @@ h4 {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
+
+.second-content-image{
+  width: 850px;
+  height: 850px;
+  border-radius: 50%;
+  overflow: hidden;   /* skjuler alt utenfor sirkelen */
+}
+
+.second-content-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 .second-content-main {
   padding-top: 20px;
   background-color: white;
@@ -602,6 +615,7 @@ h4 {
 
 .headline {
   text-align: center;
+  color: white;
   padding-top: 2rem;
   padding-bottom: 3rem;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
@@ -612,6 +626,11 @@ h4 {
   .en-main { /*Sørger for at boksen kommer under overskriften*/
     padding-left: 50px;
     padding-right: 50px;
+    background-image: url('../img/GrønnSalat_2.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 120% auto; 
+    background-attachment: fixed; 
   }
 
   .en-container { /* Container for sider med kun èn "boks" */
@@ -639,6 +658,11 @@ h4 {
   .dobbel-main{ /*Sørger for at boksene kommer under overskriften*/
     padding-left: 50px;
     padding-right: 50px;
+    background-image: url('../img/GrønnSalat_2.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 120% auto; 
+    background-attachment: fixed; 
   }
 
   .dobbel-container{ /* Container for sider med to "bokser" */
