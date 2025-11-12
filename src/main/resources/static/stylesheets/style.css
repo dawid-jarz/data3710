@@ -635,13 +635,15 @@ h4 {
 
   .en-container { /* Container for sider med kun èn "boks" */
     background-color: white;
-    width: 1000px;
+    width: 1200px;
     margin: 0 auto;
     text-align: center;
     border-radius: 8px;
     padding: 20px;
     box-shadow: 0 0 20px rgba(0,0,0,0.05);
     box-sizing: border-box;
+    font-size: 20px;
+    line-height: 1.5;
   }
 
   @media (max-width: 739px) {
@@ -663,6 +665,8 @@ h4 {
     background-position: center;
     background-size: 120% auto; 
     background-attachment: fixed; 
+    font-size: 20px;
+    line-height: 1.5;
   }
 
   .dobbel-container{ /* Container for sider med to "bokser" */
