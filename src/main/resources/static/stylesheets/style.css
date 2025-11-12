@@ -656,7 +656,7 @@ h4 {
     line-height: 1.5;
   }
 
-  @media (max-width: 739px) {
+  @media (max-width: 1250px) {
     .en-container {
       width: 100%;
       max-width: 100%;
