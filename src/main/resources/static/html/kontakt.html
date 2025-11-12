@@ -1,83 +1,131 @@
 <!DOCTYPE html>
 <html lang="no">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../stylesheets/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
-    <link rel="icon" href="../img/lotte-logo(1).png" type="image/png" sizes="16x16">
-    <script src="../scripts/script.js"></script>
-    <title>Bekkestua Kosthold og Livsstil</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../stylesheets/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <link rel="icon" href="../img/lotte-logo(1).png" type="image/png" sizes="16x16" />
+  <script src="../scripts/script.js"></script>
+  <title>Kontakt | Bekkestua Kosthold og Livsstil</title>
 </head>
 <body>
-    <nav id="navbar">
-        <ul class="navbar-left">
-            <li><a href="../index.html"><img src="../img/lotte-logo(1).png" alt="logo" class="logo"></a></li>
-            <li class="logo-tekst">Bekkestua Kosthold & Livsstil</li>
-        </ul>
-        <ul class="navbar-mid">
-            <li><a href="priser.html">Priser</a></li>
-            <li><a href="booking.html">Booking</a></li>
-            <li><a href="omlotte.html">Om</a></li>
-            <li><a href="kontakt.html">Kontakt</a></li>
-            <li><a href="samarbeid.html">Samarbeid</a></li>
-            <li><a href="protilean.html">Vektreduksjon</a></li>
-            <li class="dropdown">Mer<span class="material-symbols-outlined">arrow_drop_down</span>
-                <ul class="dropdown-content">
-                    <a href="oss.html">Hvorfor velge oss</a>
-                    <a href="forventning.html">Hva kan jeg forvente</a>
-                </ul>
-            </li>
-        </ul>
-        <ul class="navbar-right">
-            <button id="person" onclick="location.href='min-side.html'"><span class="material-symbols-outlined">person</span></button>
-            <button id="button-burger" onclick="toggleMenu()"><span class="material-symbols-outlined" id="hamburger-menu">menu</span></button>
-        </ul>
-        <div id="hamburger-overlay" class="overlay">
-            <a href="javascript:void(0)" class="closebtn" onclick="toggleMenu()">&times;</a>
-            <div class="overlay-content">
-                <a href="priser.html">Priser</a>
-                <a href="booking.html">Booking</a>
-                <a href="omlotte.html">Om</a>
-                <a href="kontakt.html">Kontakt</a>
-                <a href="samarbeid.html">Samarbeid</a>
-                <a href="protilean.html">Vektreduksjon</a>
+  <nav id="navbar">
+    <ul class="navbar-left">
+        <li><a href="../index.html"><img src="../img/lotte-logo(1).png" alt="logo" class="logo"></a></li>
+        <li class="logo-tekst">Bekkestua Kosthold & Livsstil</li>
+    </ul>
+    <ul class="navbar-mid">
+        <li><a href="priser.html">Priser</a></li>
+        <li><a href="booking.html">Booking</a></li>
+        <li><a href="omlotte.html">Om</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+        <li><a href="samarbeid.html">Samarbeid</a></li>
+        <li><a href="vektreduksjon.html">Vektreduksjon</a></li>
+        <li class="dropdown">Mer<span class="material-symbols-outlined">arrow_drop_down</span>
+            <ul class="dropdown-content">
                 <a href="oss.html">Hvorfor velge oss</a>
                 <a href="forventning.html">Hva kan jeg forvente</a>
-            </div>
-        </div>
-    </nav>
+            </ul>
+        </li>
+    </ul>
+    <ul class="navbar-right">
+        <button id="button-burger" onclick="toggleMenu()"><span class="material-symbols-outlined" id="hamburger-menu">menu</span></button>
+    </ul>
+    <div id="hamburger-overlay" class="overlay">
+      <a href="javascript:void(0)" class="closebtn" onclick="toggleMenu()">&times;</a>
+      <div class="overlay-content">
+          <a href="priser.html">Priser</a>
+          <a href="booking.html">Booking</a>
+          <a href="omlotte.html">Om</a>
+          <a href="kontakt.html">Kontakt</a>
+          <a href="samarbeid.html">Samarbeid</a>
+          <a href="vektreduksjon.html">Vektreduksjon</a>
+          <a href="oss.html">Hvorfor velge oss</a>
+          <a href="forventning.html">Hva kan jeg forvente</a>
+      </div>
+  </div>
+</nav>
+  <main class="dobbel-main">
+    <img src="../img/GrønnSalat_2.jpg" alt="Bakgrunnsbilde av en grønn salat" class="bakgrunn-img">
+      
+        <h1 class="headline">Kontakt oss</h1>
+      
+      <div class="dobbel-container">
+        <div class="container-en">
+          <h1>Kom i kontakt</h1>
 
-    <footer>
-        <div class="footer-container">
-          <div class="adresse">
-            <h4>Adresse</h4>
-            <p>Bærumsveien 207<br>1357 Bekkestua<br>2. Etasje</p>
+          <div class="kontakt-info-booking-container">
+            <div class="kontakt-info-booking">
+              <span class="material-symbols-outlined" aria-hidden="true">place</span>
+              <p>Bærumsveien 207<br />1357 Bekkestua<br />2. etasje</p>
+            </div>
+
+            <div class="kontakt-info-booking">
+              <span class="material-symbols-outlined" aria-hidden="true">mail</span>
+              <p><a class="contact-link" href="mailto:bekkestuakosthold@gmail.com">bekkestuakosthold@gmail.com</a></p>
+            </div>
+
+            <div class="kontakt-info-booking">
+              <span class="material-symbols-outlined" aria-hidden="true">call</span>
+              <p><a class="contact-link" href="tel:+4799521358">+47 995 21 358</a></p>
+            </div>
           </div>
-      
-          <div class="kontakt">
-            <h4>Kontakt</h4>
-            <p><a href="mailto:bekkestuakosthold@gmail.com">bekkestuakosthold@gmail.com</a></p>
-            <p><a href="tel:+4799521358">+47 995 21 358</a></p>
-          </div>
-      
-          <div class="folgoss">
-            <h4>Følg oss</h4>
-          <div class="social-icons">
-            <a href="https://www.facebook.com/p/Bekkestua-kosthold-og-livsstil-100062984691760/" target="_blank">
-              <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook">
-            </a>
-          </div>
+
+          <a href="https://maps.google.com/?q=Bærumsveien+207,+1357+Bekkestua">
+            <button class="knapp">Åpne i kart</button>
+    </a>
         </div>
+
+        <div class="container-to">
+          <h1>Åpningstider</h1>
+          <ul class="contact-hours">
+            <li><strong>Mandag:</strong> 10:00–16:30</li>
+            <li><strong>Tirsdag:</strong> 12:00–16:30</li>
+            <li><strong>Onsdag:</strong> 10:00–20:00</li>
+            <li><strong>Torsdag:</strong> 12:00–16:30</li>
+            <li><strong>Fredag:</strong> 10:00–16:30</li>
+          </ul>
+          <p>Fleksible åpningstider ved behov.</p>
         </div>
-      
-        <div class="footer-bottom">
-          <p>&copy; 2019-2025 av Lottes Trening og Kosthold</p>
+      </div>
+
+ 
+      <section class="contact-map" aria-label="Kart til Bekkestua Kosthold & Livsstil">
+        <iframe
+          title="Kart: Bærumsveien 207, 1357 Bekkestua"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=B%C3%A6rumsveien%20207%2C%201357%20Bekkestua&output=embed"></iframe>
+      </section>
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <div class="adresse">
+        <h4>Adresse</h4>
+        <p>Bærumsveien 207<br />1357 Bekkestua<br />2. Etasje</p>
+      </div>
+      <div class="kontakt">
+        <h4>Kontakt</h4>
+        <p><a href="mailto:bekkestuakosthold@gmail.com">bekkestuakosthold@gmail.com</a></p>
+        <p><a href="tel:+4799521358">+47 995 21 358</a></p>
+      </div>
+      <div class="folgoss">
+        <h4>Følg oss</h4>
+        <div class="social-icons">
+          <a href="https://www.facebook.com/p/Bekkestua-kosthold-og-livsstil-100062984691760/" target="_blank">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" />
+          </a>
         </div>
-    </footer>
-</head>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2019-2025 av Lottes Trening og Kosthold</p>
+    </div>
+  </footer>
 </body>
 </html>

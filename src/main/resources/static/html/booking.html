@@ -24,7 +24,7 @@
             <li><a href="omlotte.html">Om</a></li>
             <li><a href="kontakt.html">Kontakt</a></li>
             <li><a href="samarbeid.html">Samarbeid</a></li>
-            <li><a href="protilean.html">Vektreduksjon</a></li>
+            <li><a href="vektreduksjon.html">Vektreduksjon</a></li>
             <li class="dropdown">Mer<span class="material-symbols-outlined">arrow_drop_down</span>
                 <ul class="dropdown-content">
                     <a href="oss.html">Hvorfor velge oss</a>
@@ -33,7 +33,6 @@
             </li>
         </ul>
         <ul class="navbar-right">
-            <button id="person" onclick="location.href='min-side.html'"><span class="material-symbols-outlined">person</span></button>
             <button id="button-burger" onclick="toggleMenu()"><span class="material-symbols-outlined" id="hamburger-menu">menu</span></button>
         </ul>
         <div id="hamburger-overlay" class="overlay">
@@ -44,27 +43,28 @@
                 <a href="omlotte.html">Om</a>
                 <a href="kontakt.html">Kontakt</a>
                 <a href="samarbeid.html">Samarbeid</a>
-                <a href="protilean.html">Vektreduksjon</a>
+                <a href="vektreduksjon.html">Vektreduksjon</a>
                 <a href="oss.html">Hvorfor velge oss</a>
                 <a href="forventning.html">Hva kan jeg forvente</a>
             </div>
         </div>
     </nav>
     
-    <main>
-      <div class="main-content-booking">
+    <main class="dobbel-main">
+      <img src="../img/GrønnSalat_2.jpg" alt="Bakgrunnsbilde av en grønn salat" class="bakgrunn-img">
+      
         
-        <div class="headline-booking">
-          <h1>Timebooking hos Bekkestua Kosthold og Livsstil</h1>
-        </div>
-      <div class="container-booking">
-        <div class="online-booking">
+        
+          <h1 class="headline">Timebooking hos Bekkestua Kosthold og Livsstil</h1>
+       
+      <div class="dobbel-container">
+        <div class="container-en">
             <h1>Online Booking</h1>
             <p>Ved å trykke på knappen under kan du booke en time som er tilpasset dine behov.</p>
-            <button onclick="bookTime()" class="booking-knapp">Book time her</button>
+            <button onclick="bookTime()" class="knapp">Book time her</button>
         </div>
         
-        <div class="booking">
+        <div class="container-to">
           <h1>Finner du ingenting som passer dine behov?</h1>
           <p>Hos oss kan du også booke en time ved å sende melding og beksrive dine behov, slik at vi kan tilpasse en time til dine behov.</p>
           <div class="kontakt-info-booking-container">  
@@ -79,8 +79,6 @@
           </div>
           </div>
         </div>
-      </div>
-
       </div>
     </main>
 

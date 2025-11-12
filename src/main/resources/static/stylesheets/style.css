@@ -5,14 +5,17 @@ html, body { /*Dytter footeren til bunnen av siden*/
     padding: 0;
     display: flex;
     flex-direction: column;
-    --background-color: #DCE0D9;
-    --navbar-bg-color: #0A2239;
+    /*--background-color: #DCE0D9;*/
+    --background-color: #c4bfab;
+    --navbar-bg-color: #325331;
+    /*--navbar-bg-color: #0A2239;*/
     --hover-color: #95BF74;
    /*GRØNN BRUKT TIL FOOTER OG NAV BG TIDLIGERE #6a9971*/
    /*GRØNN BRUKT SOM BAKGRUNNSFARGE TIDLIGERE #95BF74*/
     --text-color: ;
     --contrast: ;
-    --footer-color: #0A2239;
+   /* --footer-color: #0A2239;*/
+    --footer-color: #325331;
     overscroll-behavior: none;
 }
 body { /*Font, tekstfarge*/
@@ -24,6 +27,11 @@ a{ /*Alt av href elementer*/
   text-decoration: none;
   color: white;
 }
+
+main {
+  flex: 1;
+}
+
 /*NAVBAR*/ 
 #navbar{
   background-color: var(--navbar-bg-color);
@@ -337,7 +345,7 @@ h4 {
   gap: 12px;               
   margin-top: 0.5rem;
 }
-Magnus
+
 .social-icons a {
   display: inline-block;
 }
@@ -354,27 +362,6 @@ Magnus
 }
 
   /*Priser.html*/
-
-  .priser-body { /* Gjør siden til flex og sørger for at tekstfargen er sort*/
-    display: flex;
-    color: black;
-  }
-
-  .priser-main { /*Sørger for at tabellen kommer under overskriften*/
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  #pris-container { /*Styler boksen til pris tabellen*/
-    width: 100%;
-    max-width: 900px;
-    margin: 0 auto;
-    background-color: white;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.05);
-  }
 
   #pris-table { /*Styler selve pris tabellen*/
     width: 100%;
@@ -420,74 +407,8 @@ Magnus
     background-color: #5a7a66;
   }
 
-  /*ProtiLean.html*/
-  #proti-container { /*Styler boksen til ProtiLean siden*/
-    width: 100%;
-    max-width: 900px;
-    margin: 0 auto;
-    background-color: var(--navbar-bg-color);
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.05);
-    color: white;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .proti-main { /*Sørger for at tabellen kommer under overskriften*/
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 70vh; 
-  }
-  
-  .proti-knapp { /*Design av knappen som tar deg til eurodiet og protilean */
-    background-color: #fff;
-    color: black;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 6px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
   /*Booking*/
-  .main-content-booking{
-    padding-left: 50px;
-    padding-right: 50px;
-  }
-  .headline-booking{
-    text-shadow: white;
-    text-align: center;
-    padding-top: 2rem;
-    padding-bottom: 3rem;
-  }
-  .container-booking{
-    display: flex;
-    justify-content: space-evenly;
-    gap: 5rem;
-  }
-  .online-booking{
-    background-color: white;
-    width: 650px;
-    text-align: center;
-    align-items: center;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.05);
-  }
-  .booking{
-    background-color: white;
-    width: 650px;
-    text-align: center;
-    align-items: center;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.05);
-  }
+
  .kontakt-info-booking-container {
   display: flex;
   flex-direction: column; 
@@ -501,34 +422,8 @@ Magnus
   gap: 0.5rem;           
   white-space: nowrap;   
 }
-.online-booking p{
-  margin-top: 1rem;
-}
-.booking-knapp{
-    margin-top: 2rem;
-    background-color: var(--navbar-bg-color);
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 6px;
-    font-size: 1rem;
-    max-width: fit-content;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-  @media (max-width: 739px){
-    .container-booking{
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      margin-bottom: 2rem;
-    }
-    .online-booking, .booking{
-      width: 100%;
-      max-width: 100%;
-      box-sizing: border-box;
-    }
-  }
+
+
 /*INDEX MAIN CONTENT*/
 .top-main {
   position: relative; /* gjør at tekst kan plasseres oppå bildet */
@@ -584,6 +479,19 @@ Magnus
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
+}
+
+.second-content-image{
+  width: 850px;
+  height: 850px;
+  border-radius: 50%;
+  overflow: hidden;   /* skjuler alt utenfor sirkelen */
+}
+
+.second-content-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .second-content-main {
   padding-top: 20px;
@@ -689,142 +597,179 @@ Magnus
 }
 */
 
+
+/* Felles ting*/
+
+.knapp{
+  margin-top: 2rem;
+  background-color: var(--navbar-bg-color);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 1rem;
+  max-width: fit-content;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.headline {
+  text-align: center;
+  color: white;
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+.bakgrunn-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: -1;
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+  /* Enkel boks sider oppsett (ikke priser)*/
+
+  .en-main { /*Sørger for at boksen kommer under overskriften*/
+    padding-left: 50px;
+    padding-right: 50px;
+    position: relative;
+    overflow: visible;
+    flex: 1 0;
+  }
+
+  .en-container { /* Container for sider med kun èn "boks" */
+    background-color: white;
+    width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+    box-sizing: border-box;
+    font-size: 20px;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 1250px) {
+    .en-container {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+
+  
+
+
+  /* Dobbel boks sider oppsett */
+  .dobbel-main{ /*Sørger for at boksene kommer under overskriften*/
+    position: relative;
+    overflow: visible;
+    flex: 1 0;
+  }
+
+  .dobbel-container{ /* Container for sider med to "bokser" */
+    display: flex;
+    justify-content: space-evenly;
+    gap: 5rem;
+    font-size: 20px;
+    line-height: 1.5;
+  }
+
+  .container-en{ /* Venstre container for sider med to "bokser" */
+    background-color: white;
+    width: 650px;
+    text-align: center;
+    align-items: center;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+  }
+
+  .container-to{ /* Høyre container for sider med to "bokser" */
+    background-color: white;
+    width: 650px;
+    text-align: center;
+    align-items: center;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+  }
+
+  @media (max-width: 739px){
+    .dobbel-container{
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    .container-en, .container-to{
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+  }
+
+
   /*om-siden*/
-  h1{
-    text-align: center;
-  }
-    /*Om */
-  .omoss-main {
-    padding-left: 50px;
-    padding-right: 50px;
-  }
-  
-  .omoss-headline {
-    text-align: center;
-    padding-top: 2rem;
-    padding-bottom: 3rem;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-  }
-  
-  .omoss-content {
-    background-color: white;
-    width: 650px;
-    margin: 0 auto;
-    text-align: center;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.05);
-    box-sizing: border-box;
-  }
-  
-  @media (max-width: 739px) {
-    .omoss-content {
-      width: 100%;
-      max-width: 100%;
-    }
-  }
   .omoss-content p {
     margin-bottom: 1rem;
     line-height: 1.6;
   }
+ 
     /*Samarbeid*/
 
-    .samarbeid-main {
-      padding-left: 50px;
-      padding-right: 50px;
+
+  
+    /* KONTAKT */
+    .contact-line {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 0.75rem;
+      align-items: start;
+      padding: 0.85rem 0;
+      border-bottom: 1px dashed rgba(0, 0, 0, 0.15);
+    }
+    .contact-line:last-of-type {
+      border-bottom: 0;
+    }
+    .contact-line .material-symbols-outlined {
+      font-size: 22px;
+      color: var(--navbar-bg-color);
+    }
+    .contact-link {
+      color: var(--navbar-bg-color);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      font-weight: 600;
+    }
+    .contact-link:hover,
+    .contact-link:focus-visible {
+      color: var(--hover-color);
     }
     
-    .samarbeid-headline {
-      text-align: center;
-      padding-top: 2rem;
-      padding-bottom: 3rem;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+  
+    .contact-hours {
+      list-style: none;
+      margin: 0 0 0.75rem 0;
+      padding: 0;
+      line-height: 1.8;
     }
+ 
     
-    .samarbeid-content {
-      background-color: white;
-      width: 650px;
-      margin: 0 auto;
-      text-align: center;
-      border-radius: 8px;
-      padding: 20px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.05);
-      box-sizing: border-box;
+    .contact-map {
+      padding: 0 clamp(1rem, 5vw, 6rem) 3rem;
+      margin-top: 2rem;
     }
-    
-    @media (max-width: 739px) {
-      .samarbeid-content {
-        width: 100%;
-        max-width: 100%;
-      }
-    }
-  
-    /*Om */
-  .omoss-main {
-    padding-left: 50px;
-    padding-right: 50px;
-  }
-  
-  .omoss-headline {
-    text-align: center;
-    padding-top: 2rem;
-    padding-bottom: 3rem;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-  }
-  
-  .omoss-content {
-    background-color: white;
-    width: 650px;
-    margin: 0 auto;
-    text-align: center;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.05);
-    box-sizing: border-box;
-  }
-  
-  @media (max-width: 739px) {
-    .omoss-content {
+    .contact-map iframe {
       width: 100%;
-      max-width: 100%;
-    }
-  }
-  .omoss-content p {
-    margin-bottom: 1rem;
-    line-height: 1.6;
-  }
-    /*Samarbeid*/
-
-    .samarbeid-main {
-      padding-left: 50px;
-      padding-right: 50px;
-    }
-    
-    .samarbeid-headline {
-      text-align: center;
-      padding-top: 2rem;
-      padding-bottom: 3rem;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-    }
-    
-    .samarbeid-content {
-      background-color: white;
-      width: 650px;
-      margin: 0 auto;
-      text-align: center;
-      border-radius: 8px;
-      padding: 20px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.05);
-      box-sizing: border-box;
-    }
-    
-    @media (max-width: 739px) {
-      .samarbeid-content {
-        width: 100%;
-        max-width: 100%;
-      }
-    }
-    .samarbied-content p {
-      margin-bottom: 1rem;
-      line-height: 1.6;
+      aspect-ratio: 16 / 9;
+      border: 0;
+      border-radius: 16px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
     }
