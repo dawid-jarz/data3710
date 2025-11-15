@@ -34,6 +34,8 @@
         </ul>
         <ul class="navbar-right">
             <button id="button-burger" onclick="toggleMenu()"><span class="material-symbols-outlined" id="hamburger-menu">menu</span></button>
+            <div id="userMenu" class="user-menu" style="display:none;"><button id="userBtn" class="circle">👤</button>
+            <div id="dropdown" class="dropdown"><a href="/html/admin.html">Admin-side</a><a href="/logout">Logg ut</a></div></div>
         </ul>
         <div id="hamburger-overlay" class="overlay">
           <a href="javascript:void(0)" class="closebtn" onclick="toggleMenu()">&times;</a>
@@ -121,3 +123,10 @@
 </head>
 </body>
 </html>
+<!DOCTYPE html><html lang="no"><head>
+<meta charset="UTF-8"><title>Forside</title>
+<link rel="stylesheet" href="/stylesheets/style.css"><script defer src="/scripts/auth.js"></script></head>
+<body><nav class="nav"><a class="brand" href="/index.html">Nettsiden</a><div class="spacer"></div>
+<div id="userMenu" class="user-menu" style="display:none;"><button id="userBtn" class="circle">👤</button>
+<div id="dropdown" class="dropdown"><a href="/html/admin.html">Admin-side</a><a href="/logout">Logg ut</a></div></div></nav>
+<main class="container"><h1>Velkommen</h1><p>Alt er åpent. Logg inn via <code>/html/min-side.html</code>.</p></main></body></html>

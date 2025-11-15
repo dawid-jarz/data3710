@@ -1,0 +1,22 @@
+<!DOCTYPE html><html lang="no"><head>
+<meta charset="UTF-8"><title>Admin</title><link rel="stylesheet" href="/stylesheets/style.css">
+<script>
+async function load(){ const r=await fetch('/api/articles'); const data=await r.json(); const list=document.getElementById('list');
+list.innerHTML=data.map(a=>`<article class="card"><h3 contenteditable="true" data-id="${a.id}" data-field="title">${a.title}</h3>
+<div class="muted">${(a.createdAt||'').toString().replace('T',' ')}</div>
+<p contenteditable="true" data-id="${a.id}" data-field="content">${a.content||''}</p>
+<div class="row"><button onclick="save(${a.id})">Lagre</button><button onclick="del(${a.id})">Slett</button></div></article>`).join(''); }
+async function postArticle(e){ e.preventDefault(); const fd=new FormData(e.target);
+const body={title:fd.get('title'),content:fd.get('content')}; const r=await fetch('/api/articles',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+if(r.ok){ e.target.reset(); load(); } else alert('Feil (mangler innlogging?)'); }
+async function save(id){ const t=document.querySelector(`[data-id="${id}"][data-field="title"]`).innerText.trim();
+const c=document.querySelector(`[data-id="${id}"][data-field="content"]`).innerText.trim();
+const r=await fetch('/api/articles/'+id,{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify({title:t,content:c})}); if(!r.ok) alert('Kunne ikke lagre'); }
+async function del(id){ if(!confirm('Slette artikkel?')) return; const r=await fetch('/api/articles/'+id,{method:'DELETE'}); if(r.ok) load(); else alert('Kunne ikke slette'); }
+window.addEventListener('DOMContentLoaded', load);
+</script></head>
+<body><nav class="nav"><a class="brand" href="/index.html">Nettsiden</a><div class="spacer"></div><a href="/logout">Logg ut</a></nav>
+<main class="container"><h1>Admin – Artikler</h1>
+<form class="card" onsubmit="postArticle(event)"><label>Tittel <input name="title" required></label>
+<label>Innhold <textarea name="content" rows="6" required></textarea></label><button type="submit">Publiser</button></form>
+<h2>Eksisterende</h2><div id="list"></div></main></body></html>
