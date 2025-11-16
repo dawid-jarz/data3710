@@ -23,3 +23,27 @@ function toggleMenu() {
   }
 });
 
+
+
+async function hentApningstider() {
+    try {
+        const res = await fetch('/api/åpningstider');
+        if (!res.ok) return;
+        const data = await res.json();
+
+        const dager = ["mandag", "tirsdag", "onsdag", "torsdag", "fredag"];
+
+        dager.forEach(dag => {
+            const el = document.getElementById(`ot-${dag}`);
+            if (el) el.textContent = data[dag] || "";
+        });
+
+        const notatEl = document.getElementById("ot-notat");
+        if (notatEl) notatEl.textContent = data.notat || "";
+
+    } catch (e) {
+        console.error("Klarte ikke hente åpningstider", e);
+    }
+}
+
+document.addEventListener("DOMContentLoaded", hentApningstider);

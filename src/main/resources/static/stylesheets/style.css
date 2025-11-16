@@ -778,3 +778,22 @@ h4 {
     .hidden {
   display: none;
 }
+
+
+
+.pris-visning-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1.2rem;
+}
+
+.pris-visning-table th,
+.pris-visning-table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+.underoverskrift-prisliste td {
+    font-weight: bold;
+    padding-top: 20px;
+}
