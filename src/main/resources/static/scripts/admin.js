@@ -1,4 +1,3 @@
-// scripts/admin.js
 
 async function jsonFetch(url, options = {}) {
   const res = await fetch(url, {
@@ -17,8 +16,12 @@ document.addEventListener('DOMContentLoaded', () => {
   initInnleggSkjema();
 });
 
-/* ===== Innlogging ===== */
 
+
+
+
+
+/* Innlogging*/
 function initLogin() {
   const form = document.getElementById('login-form');
   const adminSection = document.getElementById('admin-section');
@@ -53,8 +56,13 @@ function initLogin() {
   });
 }
 
-/* ===== Åpningstider (visning + admin) ===== */
 
+
+
+
+
+
+/* Åpningstider */
 async function hentApningstider() {
   try {
     const res = await fetch('/api/åpningstider', { credentials: 'include' });
@@ -66,14 +74,14 @@ async function hentApningstider() {
 }
 
 async function initApningstider() {
-  const listEl = document.getElementById('åpningstider-liste'); // f.eks. på kontakt/index
+  const listEl = document.getElementById('åpningstider-liste'); 
   const statusEl = document.getElementById('apningstider-status');
   const form = document.getElementById('apningstider-skjema');
 
   const data = await hentApningstider();
   if (!data) return;
 
-  // Fyll admin-skjema
+  
   if (form) {
     form.mandag.value = data.mandag || '';
     form.tirsdag.value = data.tirsdag || '';
@@ -109,7 +117,7 @@ async function initApningstider() {
     });
   }
 
-  // Fyll visning (f.eks. på kontakt.html)
+  
   if (listEl) {
     listEl.innerHTML = '';
     const dager = [
@@ -132,8 +140,11 @@ async function initApningstider() {
   }
 }
 
-/* ===== Priser (visning + admin) ===== */
 
+
+
+
+/* Priser */
 async function hentPriser() {
   try {
     const res = await fetch('/api/priser', { credentials: 'include' });
@@ -145,15 +156,15 @@ async function hentPriser() {
 }
 
 async function initPriser() {
-  const visTbody = document.getElementById('pris-liste');       // priser.html
-  const adminTbody = document.getElementById('admin-pris-liste'); // min-side.html
+  const visTbody = document.getElementById('pris-liste');       
+  const adminTbody = document.getElementById('admin-pris-liste');
   const form = document.getElementById('priser-skjema');
   const statusEl = document.getElementById('priser-status');
 
   const priser = await hentPriser();
   if (!priser || priser.length === 0) return;
 
-  // Visning på priser.html
+  
   if (visTbody) {
     visTbody.innerHTML = '';
     priser.forEach(p => {
@@ -167,7 +178,7 @@ async function initPriser() {
     });
   }
 
-  // Admin på min-side
+  
   if (adminTbody && form) {
     adminTbody.innerHTML = '';
     priser.forEach((p, index) => {
@@ -213,8 +224,12 @@ async function initPriser() {
   }
 }
 
-/* ===== Innlegg (visning på vektreduksjon + skjema på min-side) ===== */
 
+
+
+
+
+/* Innlegg */
 async function hentInnlegg() {
   try {
     const res = await fetch('/api/innlegg', { credentials: 'include' });
@@ -226,7 +241,7 @@ async function hentInnlegg() {
 }
 
 async function initInnleggVisning() {
-  const container = document.getElementById('innlegg-liste'); // vektreduksjon.html
+  const container = document.getElementById('innlegg-liste'); 
   if (!container) return;
 
   const innlegg = await hentInnlegg();
@@ -253,7 +268,7 @@ async function initInnleggVisning() {
 }
 
 function initInnleggSkjema() {
-  const form = document.getElementById('innlegg-skjema'); // min-side.html
+  const form = document.getElementById('innlegg-skjema'); 
   const statusEl = document.getElementById('innlegg-status');
   if (!form) return;
 
