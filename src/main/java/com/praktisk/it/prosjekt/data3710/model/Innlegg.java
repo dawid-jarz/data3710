@@ -6,4 +6,5 @@ public class Innlegg {
     public String navn;
     public String innhold;
     public LocalDateTime postTidspunkt;
+    public String bildeUrl;
 }

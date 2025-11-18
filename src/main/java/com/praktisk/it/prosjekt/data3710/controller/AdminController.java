@@ -2,12 +2,21 @@ package com.praktisk.it.prosjekt.data3710.controller;
 
 import com.praktisk.it.prosjekt.data3710.model.*;
 import com.praktisk.it.prosjekt.data3710.service.sideInnholdService;
+import org.springframework.http.MediaType;
+import org.springframework.web.multipart.MultipartFile;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import java.util.List;
+
+
+
 
 
 @RestController
@@ -91,14 +100,55 @@ public List<Innlegg> hentInnlegg() {
     return innholdService.hentInnlegg();
 }
 
-@PostMapping("/innlegg")
-public ResponseEntity<Innlegg> nyttInnlegg(@RequestBody Innlegg innlegg,
-                                           HttpSession session) {
+@PostMapping(
+    value = "/innlegg",
+    consumes = MediaType.MULTIPART_FORM_DATA_VALUE
+)
+public ResponseEntity<Innlegg> nyttInnlegg(
+        @RequestPart("navn") String navn,
+        @RequestPart("innhold") String innhold,
+        @RequestPart(value = "fil", required = false) MultipartFile fil,
+        HttpSession session
+) {
     if (!erAdmin(session)) {
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
     }
+
+    Innlegg innlegg = new Innlegg();
+    innlegg.navn = navn;
+    innlegg.innhold = innhold;
+
+    if (fil != null && !fil.isEmpty()) {
+        try {
+            String url = lagreFil(fil);
+            innlegg.bildeUrl = url;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
     Innlegg lagret = innholdService.leggTilInnlegg(innlegg);
     return ResponseEntity.ok(lagret);
+}
+
+
+
+
+
+
+private String lagreFil(MultipartFile fil) throws IOException {
+    String uploadsDir = "uploads/innlegg";
+    Files.createDirectories(Paths.get(uploadsDir));
+
+    String opprinneligNavn = fil.getOriginalFilename();
+    String filnavn = System.currentTimeMillis() + "_" + (opprinneligNavn != null ? opprinneligNavn : "fil");
+    Path path = Paths.get(uploadsDir, filnavn);
+
+    Files.write(path, fil.getBytes());
+
+    // Dette blir URL-en frontend bruker i <img src="...">
+    return "/uploads/innlegg/" + filnavn;
 }
 
 }

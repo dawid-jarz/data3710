@@ -259,9 +259,12 @@ async function initInnleggVisning() {
       const dato = i.postTidspunkt ? new Date(i.postTidspunkt) : null;
       article.classList.add('innlegg');
       article.innerHTML = `
-        <h3>${i.navn}</h3>
-        ${dato ? `<p><small>Publisert ${dato.toLocaleDateString('no-NO')} kl. ${dato.toLocaleTimeString('no-NO', { hour: '2-digit', minute: '2-digit' })}</small></p>` : ''}
-        <p>${i.innhold}</p>
+         <h3>${i.navn}</h3>
+  ${dato ? `<p><small>Publisert ${dato.toLocaleDateString('no-NO')} kl. ${dato.toLocaleTimeString('no-NO', { hour: '2-digit', minute: '2-digit' })}</small></p>` : ''}
+
+  ${i.bildeUrl ? `<img src="${i.bildeUrl}" alt="Innleggsbilde">` : ''}
+
+  <p>${i.innhold}</p>
       `;
       container.appendChild(article);
     });
@@ -274,24 +277,33 @@ function initInnleggSkjema() {
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const data = {
-      navn: form['innlegg-navn'].value,
-      innhold: form['innlegg-innhold'].value
-    };
+
+    const data = new FormData();
+    data.append("navn", form['innlegg-navn'].value);
+    data.append("innhold", form['innlegg-innhold'].value);
+
+    const filInput = form['innlegg-bilde'];
+    if (filInput.files.length > 0) {
+      data.append("fil", filInput.files[0]);
+    }
 
     try {
-      const res = await jsonFetch('/api/innlegg', {
+      const res = await fetch('/api/innlegg', {
         method: 'POST',
-        body: JSON.stringify(data)
+        credentials: 'include',
+        body: data
       });
+
       if (res.ok) {
-        if (statusEl) statusEl.textContent = 'Innlegg publisert.';
+        statusEl.textContent = 'Innlegg publisert.';
         form.reset();
-      } else if (statusEl) {
+      } else {
         statusEl.textContent = 'Du må være innlogget for å publisere.';
       }
+
     } catch {
-      if (statusEl) statusEl.textContent = 'Noe gikk galt ved publisering.';
+      statusEl.textContent = 'Noe gikk galt ved innsending.';
     }
   });
 }
+

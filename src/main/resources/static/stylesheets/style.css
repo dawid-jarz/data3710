@@ -797,3 +797,30 @@ h4 {
     font-weight: bold;
     padding-top: 20px;
 }
+
+
+/* INNLEGG */
+.innlegg {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    text-align: left;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.innlegg h3 {
+    margin-top: 0;
+}
+
+.innlegg img {
+    width: 100%;
+    max-height: 350px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

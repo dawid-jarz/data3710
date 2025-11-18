@@ -130,23 +130,27 @@
 
       
       <article>
-        <h3>Nytt innlegg til aktuellt-siden/h3>
-        <form id="innlegg-skjema">
-          <div class="form-row">
-            <label for="innlegg-navn">Navn / overskrift</label>
-            <input type="text" id="innlegg-navn" name="navn" required>
-          </div>
-          <div class="form-row">
-            <label for="innlegg-innhold">Innhold</label>
-            <textarea id="innlegg-innhold" name="innhold" rows="5" required></textarea>
-          </div>
-          <button type="submit" class="knapp">Publiser innlegg</button>
-          <p id="innlegg-status"></p>
-        </form>
-      </article>
-    </section>
+        <h3>Nytt innlegg til aktuelt-siden/h3>
+        <form id="innlegg-skjema" enctype="multipart/form-data">
+  <div class="form-row">
+    <label for="innlegg-navn">Navn / overskrift</label>
+    <input type="text" id="innlegg-navn" name="navn" required>
   </div>
-</main>
+
+  <div class="form-row">
+    <label for="innlegg-innhold">Innhold</label>
+    <textarea id="innlegg-innhold" name="innhold" rows="5" required></textarea>
+  </div>
+
+  <div class="form-row">
+    <label for="innlegg-bilde">Bilde (valgfritt)</label>
+    <input type="file" id="innlegg-bilde" name="fil" accept="image/*">
+  </div>
+
+  <button type="submit" class="knapp">Publiser innlegg</button>
+  <p id="innlegg-status"></p>
+</form>
+
 
     <footer>
         <div class="footer-container">
