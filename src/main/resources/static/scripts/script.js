@@ -28,7 +28,7 @@ function toggleMenu() {
 async function hentApningstider() {
     try {
         const res = await fetch('/api/åpningstider');
-        if (!res.ok) return;
+        if (!res.ok) return;orventning.html
         const data = await res.json();
 
         const dager = ["mandag", "tirsdag", "onsdag", "torsdag", "fredag"];
