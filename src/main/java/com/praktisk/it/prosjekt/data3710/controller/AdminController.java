@@ -147,7 +147,7 @@ private String lagreFil(MultipartFile fil) throws IOException {
 
     Files.write(path, fil.getBytes());
 
-    // Dette blir URL-en frontend bruker i <img src="...">
+   
     return "/uploads/innlegg/" + filnavn;
 }
 
