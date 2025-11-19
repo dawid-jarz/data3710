@@ -1,5 +1,5 @@
 function bookTime(){
-    window.open("https://system.easypractice.net/book/data3710", "_blank");
+    window.open("https://system.easypractice.net/book/bekkestua-kosthold-og-livsstil", "_blank");
 }
 
 function toggleMenu() {
