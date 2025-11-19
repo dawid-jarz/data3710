@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Brukerhåndtering</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Enkel styling bare for admin-tabellen */
+        .admin-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .admin-container h1 {
+            margin-bottom: 20px;
+        }
+
+        .admin-form {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .admin-form input {
+            padding: 6px 10px;
+        }
+
+        .admin-form button {
+            padding: 6px 12px;
+            cursor: pointer;
+        }
+
+        table.admin-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table.admin-table th,
+        table.admin-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        table.admin-table th {
+            background: #f5f5f5;
+            text-align: left;
+        }
+
+        .danger-btn {
+            background: #c62828;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 4px 8px;
+            cursor: pointer;
+        }
+
+        .danger-btn:hover {
+            background: #b71c1c;
+        }
+
+        .message {
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <nav id="navbar">
+        <!-- Hvis du vil, kan du kopiere navbaren din hit senere -->
+        <a href="/index.html">← Til forsiden</a>
+    </nav>
+
+    <main>
+        <div class="admin-container">
+            <h1>Brukerhåndtering</h1>
+
+            <section>
+                <h2>Opprett ny bruker</h2>
+                <div class="admin-form">
+                    <input id="new-username" type="text" placeholder="Brukernavn">
+                    <input id="new-password" type="password" placeholder="Passord">
+                    <button onclick="createUser()">Opprett</button>
+                </div>
+                <div id="message" class="message"></div>
+            </section>
+
+            <section>
+                <h2>Eksisterende brukere</h2>
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Brukernavn</th>
+                            <th>Handling</th>
+                        </tr>
+                    </thead>
+                    <tbody id="user-table">
+                        <!-- fylles inn med JavaScript -->
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        async function loadUsers() {
+            const res = await fetch("/admin/users");
+            if (!res.ok) {
+                document.getElementById("message").innerText = "Kunne ikke hente brukere.";
+                return;
+            }
+
+            const users = await res.json();
+            const tbody = document.getElementById("user-table");
+            tbody.innerHTML = "";
+
+            users.forEach(u => {
+                const tr = document.createElement("tr");
+
+                const tdUser = document.createElement("td");
+                tdUser.textContent = u.username;
+
+                const tdActions = document.createElement("td");
+                const delBtn = document.createElement("button");
+                delBtn.textContent = "Slett";
+                delBtn.className = "danger-btn";
+                delBtn.onclick = () => deleteUser(u.username);
+
+                tdActions.appendChild(delBtn);
+                tr.appendChild(tdUser);
+                tr.appendChild(tdActions);
+                tbody.appendChild(tr);
+            });
+        }
+
+        async function createUser() {
+            const username = document.getElementById("new-username").value.trim();
+            const password = document.getElementById("new-password").value.trim();
+            const msg = document.getElementById("message");
+
+            if (!username || !password) {
+                msg.innerText = "Brukernavn og passord kan ikke være tomt.";
+                return;
+            }
+
+            const res = await fetch("/admin/users/create", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ username, password })
+            });
+
+            if (res.ok) {
+                msg.innerText = "Bruker opprettet.";
+                document.getElementById("new-username").value = "";
+                document.getElementById("new-password").value = "";
+                loadUsers();
+            } else {
+                const text = await res.text();
+                msg.innerText = "Feil: " + text;
+            }
+        }
+
+        async function deleteUser(username) {
+            if (!confirm("Er du sikker på at du vil slette brukeren '" + username + "'?")) return;
+
+            const res = await fetch(`/admin/users/${encodeURIComponent(username)}`, {
+                method: "DELETE"
+            });
+
+            if (res.ok) {
+                document.getElementById("message").innerText = "Bruker slettet.";
+                loadUsers();
+            } else {
+                const text = await res.text();
+                document.getElementById("message").innerText = "Feil: " + text;
+            }
+        }
+
+        // Hent brukere når siden lastes
+        window.onload = loadUsers;
+    </script>
+</body>
+</html>

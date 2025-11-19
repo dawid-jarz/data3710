@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
     <link rel="icon" href="../img/lotte-logo(1).png" type="image/png" sizes="16x16">
     <script src="../scripts/script.js"></script>
+    <script src="../scripts/auth.js"></script>
     <title>Booking | Bekkestua Kosthold og Livsstil</title>
 </head>
 <body>
@@ -34,6 +35,16 @@
         </ul>
         <ul class="navbar-right">
             <button id="button-burger" onclick="toggleMenu()"><span class="material-symbols-outlined" id="hamburger-menu">menu</span></button>
+            
+            <li id="user-icon-container" style="display: none;">
+              <span class="material-symbols-outlined user-icon" onclick="toggleUserMenu()">person</span>
+
+              <div id="user-dropdown" class="dropdown-user-menu">
+              <a href="/html/min-side.html">Min side</a>
+              <a href="/logout">Logg ut</a>
+              </div>
+            </li>
+
         </ul>
         <div id="hamburger-overlay" class="overlay">
             <a href="javascript:void(0)" class="closebtn" onclick="toggleMenu()">&times;</a>

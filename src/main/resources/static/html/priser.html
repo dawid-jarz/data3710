@@ -10,8 +10,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
     <link rel="icon" href="../img/lotte-logo(1).png" type="image/png" sizes="16x16">
     <script src="../scripts/script.js"></script>
-    <script src="../scripts/admin.js"></script>
-    <title>Priser | Bekkestua Kosthold og Livsstil</title>
+    <script src="../scripts/auth.js"></script>
+    <title>Booking | Bekkestua Kosthold og Livsstil</title>
 </head>
 <body>
     <nav id="navbar">
@@ -35,6 +35,16 @@
         </ul>
         <ul class="navbar-right">
             <button id="button-burger" onclick="toggleMenu()"><span class="material-symbols-outlined" id="hamburger-menu">menu</span></button>
+            
+            <li id="user-icon-container" style="display: none;">
+              <span class="material-symbols-outlined user-icon" onclick="toggleUserMenu()">person</span>
+
+              <div id="user-dropdown" class="dropdown-user-menu">
+              <a href="/html/min-side.html">Min side</a>
+              <a href="/logout">Logg ut</a>
+              </div>
+            </li>
+
         </ul>
         <div id="hamburger-overlay" class="overlay">
             <a href="javascript:void(0)" class="closebtn" onclick="toggleMenu()">&times;</a>
@@ -63,7 +73,7 @@
                         <th>Pris</th>
                     </tr>
                 </thead>
-            <tbody id="pris-liste">
+            <tbody id="price-table">
                 </tbody>
                 </table>
             <div class="pris-bestilling">
@@ -102,6 +112,32 @@
           <p>&copy; 2019-2025 av Lottes Trening og Kosthold</p>
         </div>
     </footer>
-</head>
+    <script>
+async function loadPrices() {
+    const table = document.getElementById("price-table");
+
+    try {
+        const res = await fetch("/api/prices");
+        const data = await res.json();
+
+        table.innerHTML = "";
+
+        data.forEach(p => {
+            table.innerHTML += `
+                <tr>
+                    <td>${p.name}</td>
+                    <td>${p.price}</td>
+                </tr>
+            `;
+        });
+
+    } catch (err) {
+        console.error("Kunne ikke hente priser:", err);
+        table.innerHTML = "<tr><td colspan='2'>Kunne ikke laste priser.</td></tr>";
+    }
+}
+
+document.addEventListener("DOMContentLoaded", loadPrices);
+</script>
 </body>
 </html>

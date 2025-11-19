@@ -23,27 +23,34 @@ function toggleMenu() {
   }
 });
 
-
-
-async function hentApningstider() {
+async function loadOpeningHours() {
     try {
-        const res = await fetch('/api/åpningstider');
-        if (!res.ok) return;
+        const res = await fetch("/api/opening-hours");
+
+        if (!res.ok) {
+            console.error("Kunne ikke hente åpningstider");
+            return;
+        }
+
         const data = await res.json();
 
-        const dager = ["mandag", "tirsdag", "onsdag", "torsdag", "fredag"];
+        data.forEach(entry => {
+            const id = "ot-" + entry.day.toLowerCase();
+            const element = document.getElementById(id);
 
-        dager.forEach(dag => {
-            const el = document.getElementById(`ot-${dag}`);
-            if (el) el.textContent = data[dag] || "";
+            if (element) {
+                element.textContent = entry.hours; 
+            }
+
+            if (entry.day.toLowerCase() === "notat") {
+                const noteElement = document.getElementById("ot-notat");
+                if (noteElement) noteElement.textContent = entry.note;
+            }
         });
 
-        const notatEl = document.getElementById("ot-notat");
-        if (notatEl) notatEl.textContent = data.notat || "";
-
-    } catch (e) {
-        console.error("Klarte ikke hente åpningstider", e);
+    } catch (error) {
+        console.error("Feil ved lasting av åpningstider:", error);
     }
 }
 
-document.addEventListener("DOMContentLoaded", hentApningstider);
+document.addEventListener("DOMContentLoaded", loadOpeningHours);

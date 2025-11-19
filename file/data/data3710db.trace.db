@@ -1,0 +1,91 @@
+2025-11-19 20:48:59.320629+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "create table opening_hours ([*]day varchar(255) not null, hours varchar(255), note varchar(255), primary key (day))"; expected "identifier"; SQL statement:
+create table opening_hours (day varchar(255) not null, hours varchar(255), note varchar(255), primary key (day)) [42001-232]
+2025-11-19 20:49:00.419157+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select oh1_0.[*]day,oh1_0.hours,oh1_0.note from opening_hours oh1_0"; expected "identifier"; SQL statement:
+select oh1_0.day,oh1_0.hours,oh1_0.note from opening_hours oh1_0 [42001-232]
+2025-11-19 20:49:00.419157+01:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select oh1_0.[*]day,oh1_0.hours,oh1_0.note from opening_hours oh1_0"; expected "identifier"; SQL statement:
+select oh1_0.day,oh1_0.hours,oh1_0.note from opening_hours oh1_0 [42001-232]
+2025-11-19 20:49:00.968196+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select oh1_0.[*]day,oh1_0.hours,oh1_0.note from opening_hours oh1_0"; expected "identifier"; SQL statement:
+select oh1_0.day,oh1_0.hours,oh1_0.note from opening_hours oh1_0 [42001-232]
+2025-11-19 20:49:00.968196+01:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select oh1_0.[*]day,oh1_0.hours,oh1_0.note from opening_hours oh1_0"; expected "identifier"; SQL statement:
+select oh1_0.day,oh1_0.hours,oh1_0.note from opening_hours oh1_0 [42001-232]
+2025-11-19 20:49:01.464282+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select oh1_0.[*]day,oh1_0.hours,oh1_0.note from opening_hours oh1_0"; expected "identifier"; SQL statement:
+select oh1_0.day,oh1_0.hours,oh1_0.note from opening_hours oh1_0 [42001-232]
+2025-11-19 20:49:01.464282+01:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select oh1_0.[*]day,oh1_0.hours,oh1_0.note from opening_hours oh1_0"; expected "identifier"; SQL statement:
+select oh1_0.day,oh1_0.hours,oh1_0.note from opening_hours oh1_0 [42001-232]
+2025-11-19 20:49:01.830206+01:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select oh1_0.[*]day,oh1_0.hours,oh1_0.note from opening_hours oh1_0"; expected "identifier"; SQL statement:
+select oh1_0.day,oh1_0.hours,oh1_0.note from opening_hours oh1_0 [42001-232]
+2025-11-19 20:49:01.831205+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select oh1_0.[*]day,oh1_0.hours,oh1_0.note from opening_hours oh1_0"; expected "identifier"; SQL statement:
+select oh1_0.day,oh1_0.hours,oh1_0.note from opening_hours oh1_0 [42001-232]
+2025-11-19 20:49:02.148033+01:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select oh1_0.[*]day,oh1_0.hours,oh1_0.note from opening_hours oh1_0"; expected "identifier"; SQL statement:
+select oh1_0.day,oh1_0.hours,oh1_0.note from opening_hours oh1_0 [42001-232]
+2025-11-19 20:49:02.148033+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select oh1_0.[*]day,oh1_0.hours,oh1_0.note from opening_hours oh1_0"; expected "identifier"; SQL statement:
+select oh1_0.day,oh1_0.hours,oh1_0.note from opening_hours oh1_0 [42001-232]
+2025-11-19 20:49:02.462315+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select oh1_0.[*]day,oh1_0.hours,oh1_0.note from opening_hours oh1_0"; expected "identifier"; SQL statement:
+select oh1_0.day,oh1_0.hours,oh1_0.note from opening_hours oh1_0 [42001-232]
+2025-11-19 20:49:02.462315+01:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select oh1_0.[*]day,oh1_0.hours,oh1_0.note from opening_hours oh1_0"; expected "identifier"; SQL statement:
+select oh1_0.day,oh1_0.hours,oh1_0.note from opening_hours oh1_0 [42001-232]
+2025-11-19 20:49:02.684439+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select oh1_0.[*]day,oh1_0.hours,oh1_0.note from opening_hours oh1_0"; expected "identifier"; SQL statement:
+select oh1_0.day,oh1_0.hours,oh1_0.note from opening_hours oh1_0 [42001-232]
+2025-11-19 20:49:02.685438+01:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select oh1_0.[*]day,oh1_0.hours,oh1_0.note from opening_hours oh1_0"; expected "identifier"; SQL statement:
+select oh1_0.day,oh1_0.hours,oh1_0.note from opening_hours oh1_0 [42001-232]
+2025-11-19 20:49:02.905197+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select oh1_0.[*]day,oh1_0.hours,oh1_0.note from opening_hours oh1_0"; expected "identifier"; SQL statement:
+select oh1_0.day,oh1_0.hours,oh1_0.note from opening_hours oh1_0 [42001-232]
+2025-11-19 20:49:02.905197+01:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select oh1_0.[*]day,oh1_0.hours,oh1_0.note from opening_hours oh1_0"; expected "identifier"; SQL statement:
+select oh1_0.day,oh1_0.hours,oh1_0.note from opening_hours oh1_0 [42001-232]
+2025-11-19 20:49:03.107537+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select oh1_0.[*]day,oh1_0.hours,oh1_0.note from opening_hours oh1_0"; expected "identifier"; SQL statement:
+select oh1_0.day,oh1_0.hours,oh1_0.note from opening_hours oh1_0 [42001-232]
+2025-11-19 20:49:03.108537+01:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select oh1_0.[*]day,oh1_0.hours,oh1_0.note from opening_hours oh1_0"; expected "identifier"; SQL statement:
+select oh1_0.day,oh1_0.hours,oh1_0.note from opening_hours oh1_0 [42001-232]
+2025-11-19 20:49:03.548993+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select oh1_0.[*]day,oh1_0.hours,oh1_0.note from opening_hours oh1_0"; expected "identifier"; SQL statement:
+select oh1_0.day,oh1_0.hours,oh1_0.note from opening_hours oh1_0 [42001-232]
+2025-11-19 20:49:03.549991+01:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select oh1_0.[*]day,oh1_0.hours,oh1_0.note from opening_hours oh1_0"; expected "identifier"; SQL statement:
+select oh1_0.day,oh1_0.hours,oh1_0.note from opening_hours oh1_0 [42001-232]
+2025-11-19 20:49:04.029174+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select oh1_0.[*]day,oh1_0.hours,oh1_0.note from opening_hours oh1_0"; expected "identifier"; SQL statement:
+select oh1_0.day,oh1_0.hours,oh1_0.note from opening_hours oh1_0 [42001-232]
+2025-11-19 20:49:04.029174+01:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select oh1_0.[*]day,oh1_0.hours,oh1_0.note from opening_hours oh1_0"; expected "identifier"; SQL statement:
+select oh1_0.day,oh1_0.hours,oh1_0.note from opening_hours oh1_0 [42001-232]
+2025-11-19 20:49:07.374971+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select oh1_0.[*]day,oh1_0.hours,oh1_0.note from opening_hours oh1_0"; expected "identifier"; SQL statement:
+select oh1_0.day,oh1_0.hours,oh1_0.note from opening_hours oh1_0 [42001-232]
+2025-11-19 20:49:07.376609+01:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select oh1_0.[*]day,oh1_0.hours,oh1_0.note from opening_hours oh1_0"; expected "identifier"; SQL statement:
+select oh1_0.day,oh1_0.hours,oh1_0.note from opening_hours oh1_0 [42001-232]
+2025-11-19 20:49:07.657889+01:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select oh1_0.[*]day,oh1_0.hours,oh1_0.note from opening_hours oh1_0"; expected "identifier"; SQL statement:
+select oh1_0.day,oh1_0.hours,oh1_0.note from opening_hours oh1_0 [42001-232]
+2025-11-19 20:49:07.657889+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select oh1_0.[*]day,oh1_0.hours,oh1_0.note from opening_hours oh1_0"; expected "identifier"; SQL statement:
+select oh1_0.day,oh1_0.hours,oh1_0.note from opening_hours oh1_0 [42001-232]
+2025-11-19 20:52:07.537435+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select oh1_0.[*]day,oh1_0.hours,oh1_0.note from opening_hours oh1_0"; expected "identifier"; SQL statement:
+select oh1_0.day,oh1_0.hours,oh1_0.note from opening_hours oh1_0 [42001-232]
+2025-11-19 20:52:15.645347+01:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select oh1_0.[*]day,oh1_0.hours,oh1_0.note from opening_hours oh1_0"; expected "identifier"; SQL statement:
+select oh1_0.day,oh1_0.hours,oh1_0.note from opening_hours oh1_0 [42001-232]
+2025-11-19 21:08:43.152228+01:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO opening_hours ([*]day, hours, note) VALUES\000d\000a('notat', 'flex', 'test')"; expected "identifier"; SQL statement:
+INSERT INTO opening_hours (day, hours, note) VALUES
+('notat', 'flex', 'test') [42001-232]

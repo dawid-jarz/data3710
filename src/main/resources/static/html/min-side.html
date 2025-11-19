@@ -4,179 +4,280 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../stylesheets/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
-    <link rel="icon" href="../img/lotte-logo(1).png" type="image/png" sizes="16x16">
-    <script src="../scripts/admin.js"></script>
-    <title>Booking | Bekkestua Kosthold og Livsstil</title>
+
+    <script src="../scripts/script.js"></script>
+    <script src="../scripts/auth.js"></script>
+
+    <title>Min Side | Bekkestua Kosthold</title>
 </head>
+
 <body>
-    <nav id="navbar">
-        <ul class="navbar-left">
-            <li><a href="../index.html"><img src="../img/lotte-logo(1).png" alt="logo" class="logo"></a></li>
-            <li class="logo-tekst">Bekkestua Kosthold & Livsstil</li>
-        </ul>
-        <ul class="navbar-mid">
-            <li><a href="priser.html">Priser</a></li>
-            <li><a href="booking.html">Booking</a></li>
-            <li><a href="omlotte.html">Om</a></li>
-            <li><a href="kontakt.html">Kontakt</a></li>
-            <li><a href="samarbeid.html">Samarbeid</a></li>
-            <li><a href="vektreduksjon.html">Vektreduksjon</a></li>
-            <li class="dropdown">Mer<span class="material-symbols-outlined">arrow_drop_down</span>
-                <ul class="dropdown-content">
-                    <a href="oss.html">Hvorfor velge oss</a>
-                    <a href="forventning.html">Hva kan jeg forvente</a>
-                </ul>
-            </li>
-        </ul>
-        <ul class="navbar-right">
-            <button id="button-burger" onclick="toggleMenu()"><span class="material-symbols-outlined" id="hamburger-menu">menu</span></button>
-        </ul>
-        <div id="hamburger-overlay" class="overlay">
-            <a href="javascript:void(0)" class="closebtn" onclick="toggleMenu()">&times;</a>
-            <div class="overlay-content">
-                <a href="priser.html">Priser</a>
-                <a href="booking.html">Booking</a>
-                <a href="omlotte.html">Om</a>
-                <a href="kontakt.html">Kontakt</a>
-                <a href="samarbeid.html">Samarbeid</a>
-                <a href="vektreduksjon.html">Vektreduksjon</a>
+
+<nav id="navbar">
+    <ul class="navbar-left">
+        <li><a href="../index.html"><img src="../img/lotte-logo(1).png" class="logo"></a></li>
+        <li class="logo-tekst">Bekkestua Kosthold & Livsstil</li>
+    </ul>
+
+    <ul class="navbar-mid">
+        <li><a href="priser.html">Priser</a></li>
+        <li><a href="booking.html">Booking</a></li>
+        <li><a href="omlotte.html">Om</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+        <li><a href="samarbeid.html">Samarbeid</a></li>
+        <li><a href="vektreduksjon.html">Vektreduksjon</a></li>
+        <li class="dropdown">
+            Mer<span class="material-symbols-outlined">arrow_drop_down</span>
+            <ul class="dropdown-content">
                 <a href="oss.html">Hvorfor velge oss</a>
                 <a href="forventning.html">Hva kan jeg forvente</a>
+            </ul>
+        </li>
+    </ul>
+
+    <ul class="navbar-right">
+        <li id="user-icon-container" style="display: none;">
+            <span class="material-symbols-outlined user-icon" onclick="toggleUserMenu()">person</span>
+            <div id="user-dropdown" class="dropdown-user-menu">
+                <a href="/html/min-side.html">Min side</a>
+                <a href="/logout">Logg ut</a>
             </div>
-        </div>
-    </nav>
-    
-   <main class="en-main">
-  <img src="../img/GrønnSalat_2.jpg" alt="" class="bakgrunn-img">
-  <h1 class="headline">Innlogging for personale</h1>
+        </li>
+    </ul>
+</nav>
 
-  <div class="en-container">
-    <!-- Innlogging -->
-    <section id="login-section">
-      <h2>Logg inn</h2>
-      <form id="login-form">
-        <div class="form-row">
-          <label for="brukernavn">Brukernavn</label>
-          <input type="text" id="brukernavn" name="brukernavn" required>
-        </div>
-        <div class="form-row">
-          <label for="passord">Passord</label>
-          <input type="password" id="passord" name="passord" required>
-        </div>
-        <button type="submit" class="knapp">Logg inn</button>
-      </form>
-      <p id="login-message"></p>
-    </section>
+<img src="../img/GrønnSalat_2.jpg" class="bakgrunn-img">
 
-    <!-- Admin-innhold, skjules til innlogging er OK -->
-    <section id="admin-section" class="hidden">
-      <h2>Administrer innhold</h2>
+<main class="en-container">
+    <h2>Endre åpningstider</h2>
 
-      <!-- Åpningstider -->
-      <article>
-        <h3>Åpningstider</h3>
-        <form id="apningstider-skjema">
-          <div class="form-row">
-            <label for="mandag">Mandag</label>
-            <input type="text" id="mandag" name="mandag">
-          </div>
-          <div class="form-row">
-            <label for="tirsdag">Tirsdag</label>
-            <input type="text" id="tirsdag" name="tirsdag">
-          </div>
-          <div class="form-row">
-            <label for="onsdag">Onsdag</label>
-            <input type="text" id="onsdag" name="onsdag">
-          </div>
-          <div class="form-row">
-            <label for="torsdag">Torsdag</label>
-            <input type="text" id="torsdag" name="torsdag">
-          </div>
-          <div class="form-row">
-            <label for="fredag">Fredag</label>
-            <input type="text" id="fredag" name="fredag">
-          </div>
-          <div class="form-row">
-            <label for="notat">Notat</label>
-            <input type="text" id="notat" name="notat">
-          </div>
-          <button type="submit" class="knapp">Lagre åpningstider</button>
-          <p id="apningstider-status"></p>
-        </form>
-      </article>
+    <div id="opening-hours-editor">
+        Laster åpningstider...
+    </div>
 
-      <!-- Priser -->
-      <article>
-        <h3>Priser</h3>
-        <form id="priser-skjema">
-          <table class="pris-admin-table">
-            <thead>
-              <tr>
-                <th>Produkt</th>
-                <th>Pris</th>
-                <th>Underoverskrift?</th>
-              </tr>
-            </thead>
-            <tbody id="admin-pris-liste">
-              <!-- fylles av JS -->
-            </tbody>
-          </table>
-          <button type="submit" class="knapp">Lagre priser</button>
-          <p id="priser-status"></p>
-        </form>
-      </article>
 
-      <!-- Innlegg til vektreduksjon -->
-      <article>
-        <h3>Nytt innlegg til vektreduksjonssiden</h3>
-        <form id="innlegg-skjema">
-          <div class="form-row">
-            <label for="innlegg-navn">Navn / overskrift</label>
-            <input type="text" id="innlegg-navn" name="navn" required>
-          </div>
-          <div class="form-row">
-            <label for="innlegg-innhold">Innhold</label>
-            <textarea id="innlegg-innhold" name="innhold" rows="5" required></textarea>
-          </div>
-          <button type="submit" class="knapp">Publiser innlegg</button>
-          <p id="innlegg-status"></p>
-        </form>
-      </article>
-    </section>
-  </div>
+    <h2>Endre tjenester og priser</h2>
+
+    <div id="price-editor">
+      Laster priser...
+    </div>
+
+<h2>Administrer innlegg (Vektreduksjon)</h2>
+<div id="posts-admin">Laster...</div>
+
+<script src="../scripts/posts.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", loadPostsAdmin);
+</script>
+
 </main>
 
-    <footer>
-        <div class="footer-container">
-          <div class="adresse">
+
+<script>
+async function loadOpeningHoursEditor() {
+    const container = document.getElementById("opening-hours-editor");
+
+    try {
+        const res = await fetch("/api/opening-hours", { credentials: "include" });
+
+        if (!res.ok) {
+            container.textContent = "Kunne ikke hente åpningstider.";
+            return;
+        }
+
+        const data = await res.json();
+        container.innerHTML = "";
+
+        data.forEach(entry => {
+            const key = entry.day.toLowerCase();
+
+            // Notat behandles separat
+            if (key === "notat") return;
+
+            container.innerHTML += `
+                <div style="margin-bottom: 16px;">
+                    <strong>${capitalize(entry.day)}:</strong><br>
+                    <input id="edit-${key}" value="${entry.hours}" style="padding: 5px; width: 200px;">
+                    <button onclick="saveHours('${key}')">Lagre</button>
+                </div>
+            `;
+        });
+
+        // VIS NOTAT NEDERST
+        const noteObj = data.find(x => x.day.toLowerCase() === "notat") || { note: "" };
+
+        container.innerHTML += `
+            <hr style="margin: 20px 0;">
+            <div style="margin-bottom: 16px;">
+                <strong>Notat:</strong><br>
+                <textarea id="edit-note" style="width: 260px; height: 80px; padding: 5px;">${noteObj.note || ""}</textarea><br>
+                <button onclick="saveNote()">Lagre notat</button>
+            </div>
+        `;
+
+    } catch (err) {
+        container.textContent = "Feil ved lasting av editor.";
+    }
+}
+
+function capitalize(txt) {
+    return txt.charAt(0).toUpperCase() + txt.slice(1);
+}
+
+async function saveHours(day) {
+    const value = document.getElementById("edit-" + day).value;
+
+    const body = {
+        day: day,
+        hours: value,
+        note: ""
+    };
+
+    const res = await fetch("/api/opening-hours/" + day, {
+        method: "POST",
+        credentials: "include",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body)
+    });
+
+    alert(res.ok ? "Lagret!" : "Feil ved lagring.");
+}
+
+async function saveNote() {
+    const newNote = document.getElementById("edit-note").value;
+
+    const body = {
+        day: "notat",
+        hours: "",
+        note: newNote
+    };
+
+    const res = await fetch("/api/opening-hours/notat", {
+        method: "POST",
+        credentials: "include",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body)
+    });
+
+    alert(res.ok ? "Notat lagret!" : "Feil ved lagring.");
+}
+
+async function loadPriceEditor() {
+    const container = document.getElementById("price-editor");
+
+    try {
+        const res = await fetch("/api/prices", { credentials: "include" });
+        const prices = await res.json();
+
+        container.innerHTML = `
+            <button onclick="addPrice()">Legg til produkt</button>
+            <br><br>
+        `;
+
+        prices.forEach(p => {
+            container.innerHTML += `
+                <div style="margin-bottom:12px;">
+                    <input id="name-${p.id}" value="${p.name}" style="width:200px;">
+                    <input id="price-${p.id}" value="${p.price}" style="width:120px;">
+                    <button onclick="savePrice(${p.id})">Lagre</button>
+                    <button onclick="deletePrice(${p.id})" style="color:red;">Slett</button>
+                </div>
+            `;
+        });
+
+    } catch (err) {
+        container.innerHTML = "Kunne ikke hente priser.";
+    }
+}
+
+async function addPrice() {
+    const res = await fetch("/api/prices", {
+        method: "POST",
+        credentials: "include",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: "Nytt produkt", price: "0 kr" })
+    });
+
+    if (res.ok) location.reload();
+}
+
+async function savePrice(id) {
+    const name = document.getElementById("name-" + id).value;
+    const price = document.getElementById("price-" + id).value;
+
+    const res = await fetch("/api/prices/" + id, {
+        method: "PUT",
+        credentials: "include",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, price })
+    });
+
+    if (!res.ok) alert("Kunne ikke lagre.");
+}
+
+async function deletePrice(id) {
+    const res = await fetch("/api/prices/" + id, {
+        method: "DELETE",
+        credentials: "include"
+    });
+
+    if (res.ok) location.reload();
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    loadOpeningHoursEditor();
+    loadPriceEditor();
+});
+async function loadPrices() {
+    const table = document.getElementById("price-table");
+
+    const res = await fetch("/api/prices");
+    const data = await res.json();
+
+    table.innerHTML = "";
+
+    data.forEach(p => {
+        table.innerHTML += `
+            <tr>
+                <td>${p.name}</td>
+                <td>${p.price}</td>
+            </tr>
+        `;
+    });
+}
+
+document.addEventListener("DOMContentLoaded", loadPrices);
+document.addEventListener("DOMContentLoaded", loadOpeningHoursEditor);
+</script>
+
+
+<footer>
+    <div class="footer-container">
+        <div class="adresse">
             <h4>Adresse</h4>
             <p>Bærumsveien 207<br>1357 Bekkestua<br>2. Etasje</p>
-          </div>
-      
-          <div class="kontakt">
+        </div>
+
+        <div class="kontakt">
             <h4>Kontakt</h4>
             <p><a href="mailto:bekkestuakosthold@gmail.com">bekkestuakosthold@gmail.com</a></p>
             <p><a href="tel:+4799521358">+47 995 21 358</a></p>
-          </div>
-      
-          <div class="folgoss">
+        </div>
+
+        <div class="folgoss">
             <h4>Følg oss</h4>
-          <div class="social-icons">
             <a href="https://www.facebook.com/p/Bekkestua-kosthold-og-livsstil-100062984691760/" target="_blank">
-              <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook">
+                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook">
             </a>
-          </div>
         </div>
-        </div>
-      
-        <div class="footer-bottom">
-          <p>&copy; 2019-2025 av Lottes Trening og Kosthold</p>
-        </div>
-    </footer>
-</head>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2019–2025 av Lottes Trening og Kosthold</p>
+    </div>
+</footer>
+
 </body>
 </html>
