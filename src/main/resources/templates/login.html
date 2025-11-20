@@ -2,12 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="../stylesheets/style.css">
     <title>Login</title>
 </head>
 <body>
+<main class="en-main">
+    <img src="../img/GrønnSalat_2.jpg" alt="" class="bakgrunn-img">
 
-<h2>Login</h2>
-
+<h2 class="headline">Login</h2>
+<div class="en-container">
 <form method="post" action="/login">
     <label>Username:</label><br>
     <input type="text" name="username" required><br><br>
@@ -23,6 +26,7 @@
         <span th:if="${param.error}">Invalid username or password</span>
     </p>
 </div>
-
+</div>
+</main>
 </body>
 </html>
