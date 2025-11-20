@@ -100,45 +100,5 @@
           <p>&copy; 2019-2025 av Lottes Trening og Kosthold</p>
         </div>
     </footer>
-      
-      
-    <script>
-      function formatDateTime(dateTimeString) {
-    const dt = new Date(dateTimeString);
-
-    const day = String(dt.getDate()).padStart(2, "0");
-    const month = String(dt.getMonth() + 1).padStart(2, "0");
-    const year = dt.getFullYear();
-
-    const hours = String(dt.getHours()).padStart(2, "0");
-    const minutes = String(dt.getMinutes()).padStart(2, "0");
-
-    return `Lagt ut: ${day}.${month}.${year} · ${hours}:${minutes}`;
-}
-
-async function loadPosts() {
-    const res = await fetch("/api/posts");
-    const posts = await res.json();
-
-    posts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-
-
-    const container = document.getElementById("posts");
-    container.innerHTML = "";
-
-    posts.forEach(p => {
-        container.innerHTML += `
-            <div class="post-card">
-                <h3>${p.title}</h3>
-                <small>${formatDateTime(p.createdAt)}</small>
-                <p>${p.content}</p>
-            </div>
-            <hr>
-        `;
-    });
-}
-
-document.addEventListener("DOMContentLoaded", loadPosts);
-</script>
 </body>
 </html>
