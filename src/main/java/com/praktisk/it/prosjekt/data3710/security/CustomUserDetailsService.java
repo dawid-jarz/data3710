@@ -22,7 +22,7 @@ public class CustomUserDetailsService implements UserDetailsService {
         return org.springframework.security.core.userdetails.User
                 .withUsername(u.getUsername())
                 .password(u.getPassword())
-                .roles("USER")   // default role, required by Spring Security
+                .roles("USER")
                 .build();
     }
 }

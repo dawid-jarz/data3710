@@ -61,26 +61,23 @@ public class SecurityConfig {
                 .requestMatchers("/", "/index.html").permitAll()
 
                 // --- H2 DATABASE ---
-                .requestMatchers("/h2-console/**").permitAll()
+                .requestMatchers("/h2-console/**").authenticated()
 
                 // --- ALT ANNET ---
                 .anyRequest().permitAll()
             )
 
-            // LOGIN KONFIG
             .formLogin(form -> form
                     .loginPage("/login")
                     .defaultSuccessUrl("/index.html", true)
                     .permitAll()
             )
 
-            // LOGOUT
             .logout(logout -> logout
                     .logoutSuccessUrl("/login?logout")
                     .permitAll()
             )
 
-            // H2 og fetch API trenger dette
             .csrf(csrf -> csrf.disable())
             .headers(headers -> headers.frameOptions(frame -> frame.disable()));
 

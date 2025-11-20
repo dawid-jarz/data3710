@@ -18,10 +18,8 @@
     <button type="submit">Login</button>
 </form>
 
-<!-- Error message if login fails -->
 <div>
     <p style="color:red;">
-        <!-- Spring shows ?error on failed login -->
         <span th:if="${param.error}">Invalid username or password</span>
     </p>
 </div>

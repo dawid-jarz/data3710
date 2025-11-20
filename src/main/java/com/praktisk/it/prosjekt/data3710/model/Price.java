@@ -10,8 +10,8 @@ public class Price{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;   // Produktnavn
-    private String price;  // Pris
+    private String name; 
+    private String price;
 
     public Price() {}
 

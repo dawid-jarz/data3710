@@ -15,13 +15,11 @@ public class OpeningHoursController {
     @Autowired
     private OpeningHoursRepository repo;
 
-    // HENT ALLE ÅPNINGSTIDER (for index.html)
     @GetMapping
     public List<OpeningHours> getAll() {
         return repo.findAll();
     }
 
-    // OPPDATER EN ENKEL DAG (for min-side.html editor)
     @PostMapping("/{day}")
     public OpeningHours updateDay(
             @PathVariable String day,

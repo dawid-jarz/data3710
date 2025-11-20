@@ -1,4 +1,3 @@
-// Check login status
 fetch("/api/auth/status")
     .then(res => res.json())
     .then(data => {

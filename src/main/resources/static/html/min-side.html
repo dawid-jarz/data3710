@@ -93,7 +93,6 @@ async function loadOpeningHoursEditor() {
         data.forEach(entry => {
             const key = entry.day.toLowerCase();
 
-            // Notat behandles separat
             if (key === "notat") return;
 
             container.innerHTML += `
@@ -105,7 +104,6 @@ async function loadOpeningHoursEditor() {
             `;
         });
 
-        // VIS NOTAT NEDERST
         const noteObj = data.find(x => x.day.toLowerCase() === "notat") || { note: "" };
 
         container.innerHTML += `
