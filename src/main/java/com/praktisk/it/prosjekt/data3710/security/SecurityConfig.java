@@ -17,7 +17,7 @@ public class SecurityConfig {
         http
             .authorizeHttpRequests(auth -> auth
 
-                // --- OFFENTLIG API (GET åpningstider skal fungere for ALLE) ---
+                // OFFENTLIG API
                 .requestMatchers(
                         HttpMethod.GET,
                         "/api/opening-hours",
@@ -25,45 +25,45 @@ public class SecurityConfig {
                         "/api/opening-hours/**"
                 ).permitAll()
 
-                // --- KUN INNLOGGET KAN ENDRE ÅPNINGSTIDER ---
+                // ÅPNINGSTIDER
                 .requestMatchers(HttpMethod.POST, "/api/opening-hours/**").authenticated()
                 .requestMatchers(HttpMethod.PUT, "/api/opening-hours/**").authenticated()
                 .requestMatchers(HttpMethod.DELETE, "/api/opening-hours/**").authenticated()
                 
-                // Priser – GET = offentlig, endring = innlogget
+                // PRISER
                 .requestMatchers(HttpMethod.GET, "/api/prices", "/api/prices/**").permitAll()
                 .requestMatchers(HttpMethod.POST, "/api/prices/**").authenticated()
                 .requestMatchers(HttpMethod.PUT, "/api/prices/**").authenticated()
                 .requestMatchers(HttpMethod.DELETE, "/api/prices/**").authenticated()
 
-                // Innlegg – alle kan se, kun innloggede kan endre
+                // INNLEGG
                 .requestMatchers(HttpMethod.GET, "/api/posts").permitAll()
                 .requestMatchers(HttpMethod.POST, "/api/posts").authenticated()
                 .requestMatchers(HttpMethod.PUT, "/api/posts/**").authenticated()
                 .requestMatchers(HttpMethod.DELETE, "/api/posts/**").authenticated()
 
                 
-                // --- AUTH STATUS OG LOGIN ---
+                // AUTH STATUS OG LOGIN
                 .requestMatchers("/api/auth/status").permitAll()
                 .requestMatchers("/login").permitAll()
 
-                // --- BESKYTTET SIDE ---
+                // BESKYTTEDE SIDER
                 .requestMatchers("/html/admin.html").authenticated()
                 .requestMatchers("/html/min-side.html").authenticated()
 
-                // --- STATISKE FILER ---
+                // STATISKE FILER 
                 .requestMatchers("/stylesheets/**").permitAll()
                 .requestMatchers("/scripts/**").permitAll()
                 .requestMatchers("/img/**").permitAll()
                 .requestMatchers("/html/**").permitAll()
 
-                // --- INDEX / ROOT ---
+                // INDEX / ROOT
                 .requestMatchers("/", "/index.html").permitAll()
 
-                // --- H2 DATABASE ---
+                // H2 DATABASE
                 .requestMatchers("/h2-console/**").authenticated()
 
-                // --- ALT ANNET ---
+                // ALT DRITT
                 .anyRequest().permitAll()
             )
 
