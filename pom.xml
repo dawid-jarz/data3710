@@ -11,14 +11,32 @@
 	<groupId>com.praktisk.it.prosjekt</groupId>
 	<artifactId>data3710</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>data3710</name>
-	<description>Demo project for Spring Boot</description>
+	<name>DATA3710 Prosjekt</name>
+	<description>Bekkestua Kosthold og Livsstil - nettside</description>
 	<url/>
 	<licenses>
 		<license/>
 	</licenses>
 	<developers>
-		<developer/>
+
+		<developer>
+			<name>Magnus Evenstad</name>
+			<email>magnus.evenstad@gmail.com</email>
+		</developer>
+
+		<developer>
+			<name>Dawid Jarzebiak</name>
+			<email>dawidjarzebiak4@gmail.com</email>
+		</developer>
+
+		<developer>
+			<name>Eirik Helgerud Kristoffersen</name>
+			<email></email>
+		</developer>
+		<developer>
+			<name>Onat Isik Üce</name>
+			<email></email>
+		</developer>
 	</developers>
 	<scm>
 		<connection/>
