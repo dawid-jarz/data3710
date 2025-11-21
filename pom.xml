@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.praktisk.it.prosjekt</groupId>
 	<artifactId>data3710</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0-RELEASE</version>
 	<name>DATA3710 Prosjekt</name>
 	<description>Bekkestua Kosthold og Livsstil - nettside</description>
 	<url/>
