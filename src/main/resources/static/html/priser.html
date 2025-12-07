@@ -117,7 +117,7 @@ async function loadPrices() {
     const table = document.getElementById("price-table");
 
     try {
-        const res = await fetch("/api/prices");
+        const res = await fetch("/api/priser");
         const data = await res.json();
 
         table.innerHTML = "";

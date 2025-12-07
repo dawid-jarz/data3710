@@ -31,10 +31,10 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.DELETE, "/api/opening-hours/**").authenticated()
                 
                 // PRISER
-                .requestMatchers(HttpMethod.GET, "/api/prices", "/api/prices/**").permitAll()
-                .requestMatchers(HttpMethod.POST, "/api/prices/**").authenticated()
-                .requestMatchers(HttpMethod.PUT, "/api/prices/**").authenticated()
-                .requestMatchers(HttpMethod.DELETE, "/api/prices/**").authenticated()
+                .requestMatchers(HttpMethod.GET, "/api/prices", "/api/priser/**").permitAll()
+                .requestMatchers(HttpMethod.POST, "/api/priser/**").authenticated()
+                .requestMatchers(HttpMethod.PUT, "/api/priser/**").authenticated()
+                .requestMatchers(HttpMethod.DELETE, "/api/priser/**").authenticated()
 
                 // INNLEGG
                 .requestMatchers(HttpMethod.GET, "/api/posts").permitAll()
@@ -61,7 +61,7 @@ public class SecurityConfig {
                 .requestMatchers("/", "/index.html").permitAll()
 
                 // H2 DATABASE
-                .requestMatchers("/h2-console/**").authenticated()
+                .requestMatchers("/h2-console/**").permitAll()
 
                 // ALT DRITT
                 .anyRequest().permitAll()

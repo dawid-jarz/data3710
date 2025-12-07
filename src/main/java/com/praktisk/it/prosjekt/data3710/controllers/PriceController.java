@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/prices")
+@RequestMapping("/api/priser")
 public class PriceController {
 
     private final PriceRepository repo;

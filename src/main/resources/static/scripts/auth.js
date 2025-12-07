@@ -107,7 +107,7 @@ async function loadPriceEditor() {
     const container = document.getElementById("price-editor");
 
     try {
-        const res = await fetch("/api/prices", { credentials: "include" });
+        const res = await fetch("/api/priser", { credentials: "include" });
         const prices = await res.json();
 
         container.innerHTML = `
