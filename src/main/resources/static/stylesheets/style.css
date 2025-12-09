@@ -586,6 +586,9 @@ h4 {
   .top-main {
     all: unset;
   }
+  .second-content-image{
+    display: none;
+}
 }
 @media (max-width: 420px) {
   .main-text h1 {
@@ -849,4 +852,9 @@ h4 {
     border-radius: 8px;
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+
+.kontakt-info-booking a {
+  color: var(--navbar-bg-color);
 }

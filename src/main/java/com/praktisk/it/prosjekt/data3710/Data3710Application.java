@@ -14,10 +14,4 @@ public class Data3710Application {
 	}
 
 
-	@Bean
-	CommandLineRunner printHash(PasswordEncoder encoder) {
-		return args -> {
-			System.out.println(encoder.encode("Admin123!"));
-		};
-	}
 }
