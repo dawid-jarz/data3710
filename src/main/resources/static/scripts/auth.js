@@ -132,7 +132,7 @@ async function loadPriceEditor() {
 }
 
 async function addPrice() {
-    const res = await fetch("/api/prices", {
+    const res = await fetch("/api/priser", {
         method: "POST",
         credentials: "include",
         headers: { "Content-Type": "application/json" },
@@ -146,7 +146,7 @@ async function savePrice(id) {
     const name = document.getElementById("name-" + id).value;
     const price = document.getElementById("price-" + id).value;
 
-    const res = await fetch("/api/prices/" + id, {
+    const res = await fetch("/api/priser/" + id, {
         method: "PUT",
         credentials: "include",
         headers: { "Content-Type": "application/json" },
@@ -157,7 +157,7 @@ async function savePrice(id) {
 }
 
 async function deletePrice(id) {
-    const res = await fetch("/api/prices/" + id, {
+    const res = await fetch("/api/priser/" + id, {
         method: "DELETE",
         credentials: "include"
     });
@@ -172,7 +172,7 @@ document.addEventListener("DOMContentLoaded", () => {
 async function loadPrices() {
     const table = document.getElementById("price-table");
 
-    const res = await fetch("/api/prices");
+    const res = await fetch("/api/priser");
     const data = await res.json();
 
     table.innerHTML = "";
