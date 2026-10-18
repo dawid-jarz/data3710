@@ -121,3 +121,9 @@ document.addEventListener("DOMContentLoaded", () => {
     loadOpeningHours();
     loadPosts();
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".copyright-year").forEach(element => {
+        element.textContent = new Date().getFullYear();
+    });
+});
