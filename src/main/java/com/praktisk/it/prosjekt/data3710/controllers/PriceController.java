@@ -2,6 +2,8 @@ package com.praktisk.it.prosjekt.data3710.controllers;
 
 import com.praktisk.it.prosjekt.data3710.model.Price;
 import com.praktisk.it.prosjekt.data3710.repo.PriceRepository;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,7 +30,8 @@ public class PriceController {
 
     @PutMapping("/{id}")
     public Price update(@PathVariable Long id, @RequestBody Price p) {
-        Price existing = repo.findById(id).orElseThrow();
+        Price existing = repo.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Tjenesten finnes ikke"));
         existing.setName(p.getName());
         existing.setPrice(p.getPrice());
         return repo.save(existing);
@@ -36,6 +39,9 @@ public class PriceController {
 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
+        if (!repo.existsById(id)) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Tjenesten finnes ikke");
+        }
         repo.deleteById(id);
     }
 }

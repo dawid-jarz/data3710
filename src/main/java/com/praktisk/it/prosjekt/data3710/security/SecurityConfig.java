@@ -17,54 +17,24 @@ public class SecurityConfig {
         http
             .authorizeHttpRequests(auth -> auth
 
-                // OFFENTLIG API
-                .requestMatchers(
-                        HttpMethod.GET,
-                        "/api/opening-hours",
-                        "/api/opening-hours/",
-                        "/api/opening-hours/**"
-                ).permitAll()
+                // Offentlige data og sider
+                .requestMatchers(HttpMethod.GET,
+                        "/api/opening-hours", "/api/priser", "/api/posts",
+                        "/api/auth/status", "/api/csrf").permitAll()
+                .requestMatchers("/login", "/error", "/favicon.ico").permitAll()
 
-                // ÅPNINGSTIDER
-                .requestMatchers(HttpMethod.POST, "/api/opening-hours/**").authenticated()
-                .requestMatchers(HttpMethod.PUT, "/api/opening-hours/**").authenticated()
-                .requestMatchers(HttpMethod.DELETE, "/api/opening-hours/**").authenticated()
-                
-                // PRISER
-                .requestMatchers(HttpMethod.GET, "/api/prices", "/api/priser/**").permitAll()
-                .requestMatchers(HttpMethod.POST, "/api/priser/**").authenticated()
-                .requestMatchers(HttpMethod.PUT, "/api/priser/**").authenticated()
-                .requestMatchers(HttpMethod.DELETE, "/api/priser/**").authenticated()
+                // Krever pålogging for alle skriveoperasjoner
+                .requestMatchers("/api/opening-hours/**", "/api/priser/**", "/api/posts/**").authenticated()
+                .requestMatchers(HttpMethod.POST, "/api/priser", "/api/posts").authenticated()
+                .requestMatchers("/html/min-side.html", "/html/admin.html").authenticated()
 
-                // INNLEGG
-                .requestMatchers(HttpMethod.GET, "/api/posts").permitAll()
-                .requestMatchers(HttpMethod.POST, "/api/posts").authenticated()
-                .requestMatchers(HttpMethod.PUT, "/api/posts/**").authenticated()
-                .requestMatchers(HttpMethod.DELETE, "/api/posts/**").authenticated()
+                // Brukeradministrasjon: ingen vanlige brukere får tilgang.
+                // ADMIN-rollen må opprettes og tildeles separat før dette kan brukes.
+                .requestMatchers("/admin/**").hasRole("ADMIN")
 
-                
-                // AUTH STATUS OG LOGIN
-                .requestMatchers("/api/auth/status").permitAll()
-                .requestMatchers("/login").permitAll()
-
-                // BESKYTTEDE SIDER
-                .requestMatchers("/html/admin.html").authenticated()
-                .requestMatchers("/html/min-side.html").authenticated()
-
-                // STATISKE FILER 
-                .requestMatchers("/stylesheets/**").permitAll()
-                .requestMatchers("/scripts/**").permitAll()
-                .requestMatchers("/img/**").permitAll()
-                .requestMatchers("/html/**").permitAll()
-
-                // INDEX / ROOT
-                .requestMatchers("/", "/index.html").permitAll()
-
-                // H2 DATABASE
-                .requestMatchers("/h2-console/**").permitAll()
-
-                // ALT DRITT
-                .anyRequest().permitAll()
+                .requestMatchers("/stylesheets/**", "/scripts/**", "/img/**", "/html/**",
+                        "/", "/index.html").permitAll()
+                .anyRequest().denyAll()
             )
 
             .formLogin(form -> form
@@ -78,8 +48,8 @@ public class SecurityConfig {
                     .permitAll()
             )
 
-            .csrf(csrf -> csrf.disable())
-            .headers(headers -> headers.frameOptions(frame -> frame.disable()));
+            // CSRF er aktivert (standard). JS henter token fra /api/csrf.
+            ;
 
         return http.build();
     }

@@ -11,56 +11,70 @@
     <link rel="icon" href="../img/lotte-logo(1).png" type="image/png" sizes="16x16">
     <script src="../scripts/script.js"></script>
     <script src="../scripts/auth.js"></script>
-    <title>Booking | Bekkestua Kosthold og Livsstil</title>
+    <title>Kontakt | Bekkestua Kosthold og Livsstil</title>
 </head>
 <body>
-    <nav id="navbar">
-        <ul class="navbar-left">
-            <li><a href="../index.html"><img src="../img/lotte-logo(1).png" alt="logo" class="logo"></a></li>
-            <li class="logo-tekst">Bekkestua Kosthold & Livsstil</li>
-        </ul>
+    <a class="skip-link" href="#main-content">Hopp til hovedinnhold</a>
+    <nav id="navbar" aria-label="Hovednavigasjon">
+        <div class="navbar-left">
+            <a href="/index.html" aria-label="Til forsiden" class="logo-link">
+                <img src="/img/lotte-logo(1).png" alt="" class="logo">
+            </a>
+            <span class="logo-tekst">Bekkestua Kosthold &amp; Livsstil</span>
+        </div>
+
         <ul class="navbar-mid">
-            <li><a href="priser.html">Priser</a></li>
-            <li><a href="booking.html">Booking</a></li>
-            <li><a href="omlotte.html">Om</a></li>
-            <li><a href="kontakt.html">Kontakt</a></li>
-            <li><a href="samarbeid.html">Samarbeid</a></li>
-            <li><a href="aktuelt.html">Aktuelt</a></li>
-            <li class="dropdown">Mer<span class="material-symbols-outlined">arrow_drop_down</span>
-                <ul class="dropdown-content">
-                    <a href="oss.html">Hvorfor velge oss</a>
-                    <a href="forventning.html">Hva kan jeg forvente</a>
-                </ul>
+            <li><a href="/html/priser.html">Priser</a></li>
+            <li><a href="/html/booking.html">Booking</a></li>
+            <li><a href="/html/omlotte.html">Om</a></li>
+            <li><a href="/html/kontakt.html">Kontakt</a></li>
+            <li><a href="/html/samarbeid.html">Samarbeid</a></li>
+            <li><a href="/html/aktuelt.html">Aktuelt</a></li>
+            <li class="dropdown">
+                <details>
+                    <summary>Mer <span class="material-symbols-outlined" aria-hidden="true">arrow_drop_down</span></summary>
+                    <ul class="dropdown-content">
+                        <li><a href="/html/oss.html">Hvorfor velge oss</a></li>
+                        <li><a href="/html/forventning.html">Hva kan jeg forvente</a></li>
+                    </ul>
+                </details>
             </li>
         </ul>
-        <ul class="navbar-right">
-            <button id="button-burger" onclick="toggleMenu()"><span class="material-symbols-outlined" id="hamburger-menu">menu</span></button>
-            
-            <li id="user-icon-container" style="display: none;">
-              <span class="material-symbols-outlined user-icon" onclick="toggleUserMenu()">person</span>
 
-              <div id="user-dropdown" class="dropdown-user-menu">
-              <a href="/html/min-side.html">Min side</a>
-              <a href="/logout">Logg ut</a>
-              </div>
-            </li>
+        <div class="navbar-right">
+            <button id="button-burger" type="button" aria-label="Åpne meny"
+                    aria-controls="hamburger-overlay" aria-expanded="false">
+                <span class="material-symbols-outlined" aria-hidden="true">menu</span>
+            </button>
+            <div id="user-icon-container" hidden>
+                <details class="user-menu">
+                    <summary aria-label="Brukermeny">
+                        <span class="material-symbols-outlined" aria-hidden="true">person</span>
+                    </summary>
+                    <div id="user-dropdown" class="dropdown-user-menu">
+                        <a href="/html/min-side.html">Min side</a>
+                        <button id="logout-button" type="button">Logg ut</button>
+                    </div>
+                </details>
+            </div>
+        </div>
 
-        </ul>
-        <div id="hamburger-overlay" class="overlay">
-            <a href="javascript:void(0)" class="closebtn" onclick="toggleMenu()">&times;</a>
+        <div id="hamburger-overlay" class="overlay" role="dialog" aria-modal="true"
+             aria-label="Mobilmeny" hidden>
+            <button type="button" class="closebtn" aria-label="Lukk meny">&times;</button>
             <div class="overlay-content">
-                <a href="priser.html">Priser</a>
-                <a href="booking.html">Booking</a>
-                <a href="omlotte.html">Om</a>
-                <a href="kontakt.html">Kontakt</a>
-                <a href="samarbeid.html">Samarbeid</a>
-                <a href="aktuelt.html">Aktuelt</a>
-                <a href="oss.html">Hvorfor velge oss</a>
-                <a href="forventning.html">Hva kan jeg forvente</a>
+                <a href="/html/priser.html">Priser</a>
+                <a href="/html/booking.html">Booking</a>
+                <a href="/html/omlotte.html">Om</a>
+                <a href="/html/kontakt.html">Kontakt</a>
+                <a href="/html/samarbeid.html">Samarbeid</a>
+                <a href="/html/aktuelt.html">Aktuelt</a>
+                <a href="/html/oss.html">Hvorfor velge oss</a>
+                <a href="/html/forventning.html">Hva kan jeg forvente</a>
             </div>
         </div>
     </nav>
-  <main class="dobbel-main">
+  <main id="main-content" class="dobbel-main">
     <img src="../img/GrønnSalat_2.jpg" alt="" class="bakgrunn-img">
       
         <h1 class="headline">Kontakt oss</h1>
@@ -86,9 +100,7 @@
             </div>
           </div>
 
-          <a href="https://maps.google.com/?q=Bærumsveien+207,+1357+Bekkestua">
-            <button class="knapp">Åpne i kart</button>
-    </a>
+          <a href="https://maps.google.com/?q=Bærumsveien+207,+1357+Bekkestua" class="knapp">Åpne i kart</a>
         </div>
 
         <div class="container-to">
@@ -117,18 +129,18 @@
   <footer>
     <div class="footer-container">
       <div class="adresse">
-        <h4>Adresse</h4>
+            <h2>Adresse</h2>
         <p>Bærumsveien 207<br />1357 Bekkestua<br />2. Etasje</p>
       </div>
       <div class="kontakt">
-        <h4>Kontakt</h4>
+            <h2>Kontakt</h2>
         <p><a href="mailto:bekkestuakosthold@gmail.com">bekkestuakosthold@gmail.com</a></p>
         <p><a href="tel:+4799521358">+47 995 21 358</a></p>
       </div>
       <div class="folgoss">
-        <h4>Følg oss</h4>
+            <h2>Følg oss</h2>
         <div class="social-icons">
-          <a href="https://www.facebook.com/p/Bekkestua-kosthold-og-livsstil-100062984691760/" target="_blank">
+            <a href="https://www.facebook.com/p/Bekkestua-kosthold-og-livsstil-100062984691760/" target="_blank" rel="noopener noreferrer" aria-label="Bekkestua Kosthold og Livsstil på Facebook (åpnes i ny fane)">
             <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" />
           </a>
         </div>

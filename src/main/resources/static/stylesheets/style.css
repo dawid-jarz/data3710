@@ -586,9 +586,6 @@ h4 {
   .top-main {
     all: unset;
   }
-  .second-content-image{
-    display: none;
-}
 }
 @media (max-width: 420px) {
   .main-text h1 {
@@ -854,7 +851,256 @@ h4 {
     margin-bottom: 10px;
 }
 
+/* Tilgjengelighet, lesbarhet og responsivt oppsett (WCAG 2.1 AA) */
+:root {
+  --surface: #ffffff;
+  --ink: #1c281b;
+  --forest: #325331;
+}
 
-.kontakt-info-booking a {
-  color: var(--navbar-bg-color);
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+html, body { --hover-color: #d9edc8; }
+body { color: var(--ink); }
+[hidden] { display: none !important; }
+img { max-width: 100%; }
+main { min-width: 0; }
+main p { line-height: 1.7; }
+h1, h2, h3 { line-height: 1.3; }
+
+.skip-link {
+  position: fixed;
+  left: 1rem;
+  top: -100px;
+  z-index: 3000;
+  padding: .8rem 1rem;
+  background: #fff;
+  color: var(--forest);
+  font-weight: 700;
+  border-radius: 0 0 8px 8px;
+}
+.skip-link:focus { top: 0; }
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+:where(a, button, input, textarea, summary):focus-visible {
+  outline: 3px solid #ffc661;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 5px #20381e;
+}
+
+/* Hovedmeny */
+#navbar { min-height: 76px; gap: 1rem; padding: .5rem clamp(.75rem, 2vw, 2rem); }
+.navbar-left { display: flex; align-items: center; gap: .8rem; padding: 0; }
+.logo-link { display: inline-flex !important; align-items: center; }
+.logo { display: block; width: 56px; height: auto; }
+.navbar-left .logo-tekst { padding: 0; font-size: 1.05rem; }
+.navbar-mid { margin: 0; padding: 0; gap: clamp(.4rem, 1.4vw, 1.3rem); }
+.navbar-mid a, .dropdown summary { display: inline-flex; align-items: center; padding: .65rem .3rem; }
+.dropdown summary { cursor: pointer; list-style: none; color: white; font-weight: 600; }
+.dropdown summary::-webkit-details-marker { display: none; }
+.dropdown:hover details:not([open]) .dropdown-content { display: none; }
+.dropdown details[open] .dropdown-content { display: block; }
+.dropdown-content { padding: .4rem 0; }
+.dropdown-content li { list-style: none; }
+.dropdown-content a { display: block; padding: .75rem 1rem; }
+.navbar-right { display: flex; padding: 0; gap: .8rem; }
+#button-burger { min-height: 44px; min-width: 44px; cursor: pointer; }
+#button-burger .material-symbols-outlined { display: inline-block; }
+.user-menu { position: relative; }
+.user-menu summary { display: flex; align-items: center; cursor: pointer; list-style: none; min-height: 44px; color: #fff; }
+.user-menu summary::-webkit-details-marker { display: none; }
+.user-menu .dropdown-user-menu { top: 100%; right: 0; display: none; min-width: 180px; }
+.user-menu[open] .dropdown-user-menu { display: block; }
+#logout-button { display: block; width: 100%; border: 0; background: none; color: var(--ink);
+  font: inherit; text-align: left; padding: .65rem; cursor: pointer; }
+#logout-button:hover, #logout-button:focus-visible { background: #e9f1e6; }
+.overlay { width: 100vw; height: 100vh; height: 100dvh; overflow-y: auto; }
+.overlay .closebtn { top: 1rem; right: 1rem; min-height: 44px; min-width: 44px;
+  border: 0; color: white; background: transparent; cursor: pointer; }
+.overlay-content { top: auto; margin: 5.5rem auto 2rem; max-width: 32rem; }
+.overlay-content a { font-size: clamp(1.1rem, 4vw, 1.7rem); padding: .85rem 1rem; }
+
+/* Alle undersider: lesbar skrift, tydelig overskrift og avstand til footer */
+.en-main, .dobbel-main, .admin-main {
+  position: relative;
+  padding: clamp(1rem, 3vw, 2.5rem) clamp(1rem, 4vw, 4rem) clamp(3rem, 6vw, 5rem);
+  min-width: 0;
+}
+.headline {
+  display: table;
+  width: auto;
+  max-width: 100%;
+  margin: 1rem auto 2.5rem;
+  padding: .7rem 1.5rem;
+  border: 2px solid #fff;
+  border-radius: 12px;
+  background: var(--forest);
+  color: #fff;
+  font-size: clamp(1.6rem, 4vw, 2.7rem);
+  text-shadow: none;
+  position: relative;
+}
+/* Behold samme tydelige salatbakgrunn som før, og overskriftsboksen over. */
+.bakgrunn-img { opacity: .9; }
+.en-container, .container-en, .container-to {
+  background: var(--surface);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  text-align: left;
+  padding: clamp(1.25rem, 3vw, 2.5rem);
+  border-radius: 12px;
+  box-shadow: 0 6px 24px rgba(17, 39, 20, .12);
+  overflow-wrap: anywhere;
+}
+.en-container { width: 100%; max-width: 1100px; margin-inline: auto; }
+.dobbel-container {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 3vw, 2rem);
+  max-width: 1200px;
+  margin: 0 auto;
+  font-size: 1.0625rem;
+}
+.container-en, .container-to { width: 100%; min-width: 0; }
+.kontakt-info-booking-container { align-items: stretch; }
+.kontakt-info-booking {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr);
+  align-items: center;
+  gap: .65rem;
+  white-space: normal;
+  min-width: 0;
+}
+.kontakt-info-booking .material-symbols-outlined {
+  display: block;
+  width: 28px;
+  text-align: center;
+  line-height: 1;
+}
+.kontakt-info-booking p { margin: 0; min-width: 0; }
+.kontakt-info-booking a { overflow-wrap: anywhere; }
+.contact-map { max-width: 1260px; margin: 2rem auto 0; padding: 0; }
+.contact-map iframe { width: 100%; min-height: 300px; }
+.contact-link, .contact-link:hover, .contact-link:focus-visible { color: #284c27; text-decoration: underline; }
+
+/* Knapper og lenker som ser ut som knapper */
+.knapp, .bestill-knapp, .cta-link {
+  display: inline-block;
+  width: fit-content;
+  min-height: 44px;
+  padding: .7rem 1.25rem;
+  border-radius: 8px;
+  border: 2px solid var(--forest);
+  background: var(--forest);
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+.knapp:hover, .bestill-knapp:hover, .cta-link:hover { background: #243e24; color: #fff; }
+.pris-visning-table { font-size: 1rem; }
+.pris-visning-table caption { padding: .5rem; font-weight: 700; text-align: left; }
+.pris-visning-table th { text-align: left; }
+
+/* Lesbar forside, også ved 200 % zoom og mobilbredde */
+.top-main { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center; gap: 2rem; padding: clamp(2rem, 5vw, 5rem); }
+.main-image { width: min(100%, 480px); height: auto; aspect-ratio: 1; margin-inline: auto; }
+.main-text { position: static; display: block; max-width: none; margin: 0;
+  padding: clamp(1.5rem, 3vw, 3rem); border-radius: 20px; }
+.main-text h1 { font-size: clamp(1.7rem, 3.7vw, 2.7rem); }
+.main-text p { font-size: clamp(1rem, 1.8vw, 1.25rem); }
+.index-top-text-container { min-width: 0; }
+.main-text .cta-link { background: #fff; color: var(--forest); border-color: #fff; }
+.main-text .cta-link:hover { background: #eaf1e6; color: var(--forest); }
+.second-content-main { padding: 3rem clamp(1rem, 5vw, 5rem); gap: 1.5rem; }
+.second-content-main h2, .teritary-content-main h2 { font-size: clamp(1.5rem, 3vw, 2rem); }
+.second-content-image { width: min(100%, 350px); height: auto; aspect-ratio: 1; }
+.second-content-text { text-align: left; max-width: 70ch; }
+.second-content-text p { font-size: 1.0625rem; }
+.teritary-content-main { padding: 3rem 1rem; }
+.teritary-content-main p { font-size: 1.0625rem; }
+
+/* Separate artikkelkort */
+.aktuelt-intro { max-width: 1000px; margin-bottom: 1.5rem; text-align: center; }
+.aktuelt-posts { display: grid; gap: 2rem; width: 100%; max-width: 1000px; margin: 0 auto; }
+.post-card { background: #fff; border: 1px solid #c8d6c6; border-left: 6px solid var(--forest);
+  border-radius: 12px; padding: clamp(1.25rem, 3vw, 2.5rem);
+  box-shadow: 0 8px 24px rgba(15, 42, 20, .14); text-align: left; }
+.post-card h2 { margin: 0 0 .5rem; color: var(--forest); font-size: clamp(1.4rem, 3vw, 1.9rem); }
+.post-card-date { color: #465d45; margin: 0 0 1.5rem; font-size: .95rem; }
+.post-card-content { margin: 0; max-width: 75ch; font-size: 1.0625rem; line-height: 1.8;
+  white-space: pre-line; overflow-wrap: anywhere; }
+.aktuelt-status { background: #fff; padding: 1.5rem; border-radius: 12px; }
+
+/* Admin: etiketter, status og redigering */
+.admin-container { max-width: 950px; }
+.admin-container h1 { margin-top: 0; }
+.editor-row { display: grid; gap: .5rem; padding: 1rem 0; border-bottom: 1px solid #cbd5c9; }
+.editor-row label { display: block; font-weight: 700; }
+.editor-row input, .editor-row textarea { width: 100%; max-width: 40rem; padding: .7rem;
+  font: inherit; border: 2px solid #71836f; border-radius: 6px; }
+.editor-actions { display: flex; gap: .6rem; flex-wrap: wrap; }
+.editor-row button, #posts-admin button, #price-editor button, #opening-hours-editor button {
+  min-height: 44px; padding: .6rem 1rem; border: 2px solid var(--forest); border-radius: 6px;
+  background: var(--forest); color: white; font: inherit; cursor: pointer;
+}
+.editor-row button:hover, #posts-admin button:hover { background: #243e24; }
+#admin-status { min-height: 1.5rem; font-weight: 700; }
+
+footer { margin-top: auto; padding-top: 1.5rem; }
+.footer-container { max-width: 1200px; margin: 0 auto 1.5rem; padding: 0 clamp(1rem, 4vw, 3rem); }
+.footer-container h2 { margin: 0 0 .75rem; font-size: 1rem; font-weight: 700; }
+footer a { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+footer a:hover { color: #e5f3d9; }
+
+@media (max-width: 992px) {
+  .top-main { display: grid; grid-template-columns: 1fr; padding: 2rem 1rem; }
+  .main-image { display: none; }
+  .main-text { display: block; position: static; background: var(--forest); color: white;
+    padding: 2rem; margin: 0; border-radius: 18px; font-family: inherit; }
+  .index-top-text-container { margin: 0; padding: 0; background: transparent; }
+}
+/* Hele navigasjonen må få plass også ved nettbrett og høy zoom. */
+@media (max-width: 1150px) {
+  .navbar-mid { display: none; }
+  #button-burger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--forest);
+    color: #fff;
+    border: 0;
+  }
+}
+@media (max-width: 830px) {
+  .navbar-left .logo-tekst { display: inline; font-size: .9rem; }
+  #button-burger { display: flex; align-items: center; justify-content: center;
+    background: var(--forest); color: #fff; border: 0; }
+  .navbar-mid { display: none; }
+  .dobbel-container { grid-template-columns: 1fr; }
+}
+@media (max-width: 500px) {
+  .navbar-left .logo-tekst { display: none; }
+  .en-main, .dobbel-main, .admin-main { padding-inline: .75rem; }
+  .en-container, .container-en, .container-to { padding: 1rem; }
+  .footer-container { flex-direction: column; align-items: flex-start; }
+  .second-content-main { font-size: 1rem; }
+  .teritary-content-main { font-size: 1rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important;
+    transition-duration: .01ms !important; }
 }

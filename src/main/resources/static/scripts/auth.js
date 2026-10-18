@@ -1,191 +1,157 @@
-fetch("/api/auth/status")
-    .then(res => res.json())
-    .then(data => {
-        if (data.loggedIn === true) {
-            document.getElementById("user-icon-container").style.display = "block";
-        }
-    });
+// Felles API-hjelper for skriveoperasjoner. Spring Security krever CSRF-token.
+async function apiWrite(url, method, body) {
+    const tokenResponse = await fetch("/api/csrf", { credentials: "same-origin", cache: "no-store" });
+    if (!tokenResponse.ok) throw new Error("Kunne ikke hente sikkerhetstoken");
+    const csrf = await tokenResponse.json();
+    const headers = { [csrf.headerName]: csrf.token };
+    if (body !== undefined) headers["Content-Type"] = "application/json";
 
-function toggleUserMenu() {
-    const menu = document.getElementById("user-dropdown");
-    menu.style.display = (menu.style.display === "block") ? "none" : "block";
+    const response = await fetch(url, {
+        method, headers, credentials: "same-origin",
+        ...(body === undefined ? {} : { body: JSON.stringify(body) })
+    });
+    if (!response.ok) throw new Error(`Kunne ikke lagre (${response.status})`);
+    return response;
 }
 
+function adminStatus(message) {
+    const element = document.getElementById("admin-status");
+    if (element) element.textContent = message;
+}
 
+function createEditorField(labelText, id, value, multiline = false) {
+    const wrapper = document.createElement("div");
+    const label = document.createElement("label");
+    label.htmlFor = id;
+    label.textContent = labelText;
+    const input = document.createElement(multiline ? "textarea" : "input");
+    input.id = id;
+    input.value = value || "";
+    if (multiline) input.rows = 4;
+    wrapper.append(label, input);
+    return wrapper;
+}
 
-
-
-
+function createEditorButton(text, action) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.textContent = text;
+    button.addEventListener("click", async () => {
+        button.disabled = true;
+        try { await action(); }
+        catch (error) { console.error(error); adminStatus(error.message); }
+        finally { button.disabled = false; }
+    });
+    return button;
+}
 
 async function loadOpeningHoursEditor() {
     const container = document.getElementById("opening-hours-editor");
-
+    if (!container) return;
     try {
-        const res = await fetch("/api/opening-hours", { credentials: "include" });
+        const res = await fetch("/api/opening-hours", { credentials: "same-origin" });
+        if (!res.ok) throw new Error("Kunne ikke hente åpningstider");
+        const data = await res.json();
+        container.replaceChildren();
 
-        if (!res.ok) {
-            container.textContent = "Kunne ikke hente åpningstider.";
-            return;
+        for (const entry of data) {
+            const day = String(entry.day || "").toLowerCase();
+            if (day === "notat") continue;
+            const row = document.createElement("div");
+            row.className = "editor-row";
+            row.append(createEditorField(`Åpningstid ${day}`, `hours-${day}`, entry.hours));
+            row.append(createEditorButton("Lagre åpningstid", async () => {
+                const hours = document.getElementById(`hours-${day}`).value.trim();
+                await apiWrite(`/api/opening-hours/${encodeURIComponent(day)}`, "POST",
+                    { day, hours, note: "" });
+                adminStatus(`Åpningstid for ${day} er lagret.`);
+            }));
+            container.append(row);
         }
 
-        const data = await res.json();
-        container.innerHTML = "";
-
-        data.forEach(entry => {
-            const key = entry.day.toLowerCase();
-
-            if (key === "notat") return;
-
-            container.innerHTML += `
-                <div style="margin-bottom: 16px;">
-                    <strong>${capitalize(entry.day)}:</strong><br>
-                    <input id="edit-${key}" value="${entry.hours}" style="padding: 5px; width: 200px;">
-                    <button onclick="saveHours('${key}')">Lagre</button>
-                </div>
-            `;
-        });
-
-        const noteObj = data.find(x => x.day.toLowerCase() === "notat") || { note: "" };
-
-        container.innerHTML += `
-            <hr style="margin: 20px 0;">
-            <div style="margin-bottom: 16px;">
-                <strong>Notat:</strong><br>
-                <textarea id="edit-note" style="width: 260px; height: 80px; padding: 5px;">${noteObj.note || ""}</textarea><br>
-                <button onclick="saveNote()">Lagre notat</button>
-            </div>
-        `;
-
-    } catch (err) {
-        container.textContent = "Feil ved lasting av editor.";
+        const row = document.createElement("div");
+        row.className = "editor-row";
+        row.append(createEditorField("Notat til åpningstider", "hours-note",
+            data.find(entry => String(entry.day).toLowerCase() === "notat")?.note, true));
+        row.append(createEditorButton("Lagre notat", async () => {
+            await apiWrite("/api/opening-hours/notat", "POST", {
+                day: "notat", hours: "", note: document.getElementById("hours-note").value
+            });
+            adminStatus("Notatet er lagret.");
+        }));
+        container.append(row);
+    } catch (error) {
+        console.error(error);
+        container.textContent = "Kunne ikke hente åpningstider.";
     }
-}
-
-function capitalize(txt) {
-    return txt.charAt(0).toUpperCase() + txt.slice(1);
-}
-
-async function saveHours(day) {
-    const value = document.getElementById("edit-" + day).value;
-
-    const body = {
-        day: day,
-        hours: value,
-        note: ""
-    };
-
-    const res = await fetch("/api/opening-hours/" + day, {
-        method: "POST",
-        credentials: "include",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body)
-    });
-
-    alert(res.ok ? "Lagret!" : "Feil ved lagring.");
-}
-
-async function saveNote() {
-    const newNote = document.getElementById("edit-note").value;
-
-    const body = {
-        day: "notat",
-        hours: "",
-        note: newNote
-    };
-
-    const res = await fetch("/api/opening-hours/notat", {
-        method: "POST",
-        credentials: "include",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body)
-    });
-
-    alert(res.ok ? "Notat lagret!" : "Feil ved lagring.");
 }
 
 async function loadPriceEditor() {
     const container = document.getElementById("price-editor");
-
+    if (!container) return;
     try {
-        const res = await fetch("/api/priser", { credentials: "include" });
+        const res = await fetch("/api/priser", { credentials: "same-origin" });
+        if (!res.ok) throw new Error("Kunne ikke hente priser");
         const prices = await res.json();
+        container.replaceChildren();
 
-        container.innerHTML = `
-            <button onclick="addPrice()">Legg til produkt</button>
-            <br><br>
-        `;
+        container.append(createEditorButton("Legg til tjeneste", async () => {
+            await apiWrite("/api/priser", "POST", { name: "Ny tjeneste", price: "0 kr" });
+            adminStatus("Ny tjeneste lagt til.");
+            await loadPriceEditor();
+        }));
 
-        prices.forEach(p => {
-            container.innerHTML += `
-                <div style="margin-bottom:12px;">
-                    <input id="name-${p.id}" value="${p.name}" style="width:200px;">
-                    <input id="price-${p.id}" value="${p.price}" style="width:120px;">
-                    <button onclick="savePrice(${p.id})">Lagre</button>
-                    <button onclick="deletePrice(${p.id})" style="color:red;">Slett</button>
-                </div>
-            `;
-        });
+        for (const price of prices) {
+            const row = document.createElement("div");
+            row.className = "editor-row";
+            row.append(createEditorField("Tjeneste", `name-${price.id}`, price.name));
+            row.append(createEditorField("Pris", `price-${price.id}`, price.price));
 
-    } catch (err) {
-        container.innerHTML = "Kunne ikke hente priser.";
+            const actions = document.createElement("div");
+            actions.className = "editor-actions";
+            actions.append(createEditorButton("Lagre", async () => {
+                await apiWrite(`/api/priser/${price.id}`, "PUT", {
+                    name: document.getElementById(`name-${price.id}`).value,
+                    price: document.getElementById(`price-${price.id}`).value
+                });
+                adminStatus("Prisen er lagret.");
+            }));
+            actions.append(createEditorButton("Slett", async () => {
+                if (!confirm(`Slette tjenesten «${price.name}»?`)) return;
+                await apiWrite(`/api/priser/${price.id}`, "DELETE");
+                adminStatus("Tjenesten er slettet.");
+                await loadPriceEditor();
+            }));
+            row.append(actions);
+            container.append(row);
+        }
+    } catch (error) {
+        console.error(error);
+        container.textContent = "Kunne ikke hente priser.";
     }
 }
 
-async function addPrice() {
-    const res = await fetch("/api/priser", {
-        method: "POST",
-        credentials: "include",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: "Nytt produkt", price: "0 kr" })
+document.addEventListener("DOMContentLoaded", async () => {
+    const userContainer = document.getElementById("user-icon-container");
+    if (userContainer) {
+        try {
+            const res = await fetch("/api/auth/status", { credentials: "same-origin" });
+            if (!res.ok) throw new Error("Ukjent innloggingsstatus");
+            const data = await res.json();
+            userContainer.hidden = !data.loggedIn;
+        } catch (error) { console.error(error); }
+    }
+
+    document.getElementById("logout-button")?.addEventListener("click", async () => {
+        try {
+            await apiWrite("/logout", "POST");
+            window.location.assign("/login?logout");
+        } catch (error) {
+            console.error(error);
+            adminStatus("Kunne ikke logge ut. Prøv igjen.");
+        }
     });
 
-    if (res.ok) location.reload();
-}
-
-async function savePrice(id) {
-    const name = document.getElementById("name-" + id).value;
-    const price = document.getElementById("price-" + id).value;
-
-    const res = await fetch("/api/priser/" + id, {
-        method: "PUT",
-        credentials: "include",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, price })
-    });
-
-    if (!res.ok) alert("Kunne ikke lagre.");
-}
-
-async function deletePrice(id) {
-    const res = await fetch("/api/priser/" + id, {
-        method: "DELETE",
-        credentials: "include"
-    });
-
-    if (res.ok) location.reload();
-}
-
-document.addEventListener("DOMContentLoaded", () => {
     loadOpeningHoursEditor();
     loadPriceEditor();
 });
-async function loadPrices() {
-    const table = document.getElementById("price-table");
-
-    const res = await fetch("/api/priser");
-    const data = await res.json();
-
-    table.innerHTML = "";
-
-    data.forEach(p => {
-        table.innerHTML += `
-            <tr>
-                <td>${p.name}</td>
-                <td>${p.price}</td>
-            </tr>
-        `;
-    });
-}
-
-document.addEventListener("DOMContentLoaded", loadPrices);
-document.addEventListener("DOMContentLoaded", loadOpeningHoursEditor);

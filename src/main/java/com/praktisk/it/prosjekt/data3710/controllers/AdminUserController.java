@@ -21,8 +21,9 @@ public class AdminUserController {
     private PasswordEncoder encoder;
 
     @GetMapping
-    public List<User> getAllUsers() {
-        return repo.findAll();
+    public List<String> getAllUsers() {
+        // Ikke send passordhashene i API-responsen.
+        return repo.findAll().stream().map(User::getUsername).toList();
     }
 
     @PostMapping("/create")

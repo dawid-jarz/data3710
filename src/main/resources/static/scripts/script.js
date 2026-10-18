@@ -1,97 +1,123 @@
-function bookTime(){
-    window.open("https://system.easypractice.net/book/bekkestua-kosthold-og-livsstil", "_blank");
+function bookTime() {
+    window.open("https://system.easypractice.net/book/bekkestua-kosthold-og-livsstil", "_blank", "noopener,noreferrer");
 }
 
-function toggleMenu() {
-  const menu = document.getElementById("hamburger-overlay");
-  if (menu.style.width === "100%") {
-    menu.style.width = "0";
-  } 
-  else {
-    menu.style.width = "100%";
-  }
-}
-  document.addEventListener("DOMContentLoaded", () => {
-  const home = document.querySelector(".logo-tekst");
+function toggleMenu(forceClose = false) {
+    const menu = document.getElementById("hamburger-overlay");
+    const trigger = document.getElementById("button-burger");
+    if (!menu || !trigger) return;
 
-  if (home) {
-    home.addEventListener("click", () => {
-      if (window.innerWidth <= 627) {
-        window.location.href = "../index.html";
-      }
+    const opening = !forceClose && menu.hidden;
+    menu.hidden = !opening;
+    trigger.setAttribute("aria-expanded", String(opening));
+    trigger.setAttribute("aria-label", opening ? "Lukk meny" : "Åpne meny");
+
+    if (opening) menu.querySelector("a, button")?.focus();
+    else if (forceClose) trigger.focus();
+}
+
+function setupNavigation() {
+    const trigger = document.getElementById("button-burger");
+    const menu = document.getElementById("hamburger-overlay");
+    trigger?.addEventListener("click", () => toggleMenu());
+    menu?.querySelector(".closebtn")?.addEventListener("click", () => toggleMenu(true));
+
+    document.addEventListener("keydown", event => {
+        if (!menu || menu.hidden) return;
+        if (event.key === "Escape") {
+            event.preventDefault();
+            toggleMenu(true);
+        } else if (event.key === "Tab") {
+            const focusable = [...menu.querySelectorAll("a, button")];
+            const first = focusable[0];
+            const last = focusable[focusable.length - 1];
+            if (!first || !last) return;
+            if (event.shiftKey && document.activeElement === first) {
+                event.preventDefault();
+                last.focus();
+            } else if (!event.shiftKey && document.activeElement === last) {
+                event.preventDefault();
+                first.focus();
+            }
+        }
     });
-  }
-});
+}
 
 async function loadOpeningHours() {
+    if (!document.querySelector('[id^="ot-"]')) return;
     try {
         const res = await fetch("/api/opening-hours");
-
-        if (!res.ok) {
-            console.error("Kunne ikke hente åpningstider");
-            return;
-        }
-
+        if (!res.ok) throw new Error("Kunne ikke hente åpningstider");
         const data = await res.json();
-
         data.forEach(entry => {
-            const id = "ot-" + entry.day.toLowerCase();
-            const element = document.getElementById(id);
-
-            if (element) {
-                element.textContent = entry.hours; 
-            }
-
-            if (entry.day.toLowerCase() === "notat") {
-                const noteElement = document.getElementById("ot-notat");
-                if (noteElement) noteElement.textContent = entry.note;
+            const day = String(entry.day || "").toLowerCase();
+            const element = document.getElementById("ot-" + day);
+            if (element) element.textContent = entry.hours || "Ikke oppgitt";
+            if (day === "notat") {
+                const note = document.getElementById("ot-notat");
+                if (note) note.textContent = entry.note || "";
             }
         });
-
     } catch (error) {
-        console.error("Feil ved lasting av åpningstider:", error);
+        console.error(error);
+        document.querySelectorAll('[id^="ot-"]').forEach(element => {
+            if (element.id !== "ot-notat") element.textContent = "Ikke tilgjengelig";
+        });
     }
 }
 
-document.addEventListener("DOMContentLoaded", loadOpeningHours);
-
-
-
-
-
 function formatDateTime(dateTimeString) {
     const dt = new Date(dateTimeString);
-
-    const day = String(dt.getDate()).padStart(2, "0");
-    const month = String(dt.getMonth() + 1).padStart(2, "0");
-    const year = dt.getFullYear();
-
-    const hours = String(dt.getHours()).padStart(2, "0");
-    const minutes = String(dt.getMinutes()).padStart(2, "0");
-
-    return `Lagt ut: ${day}.${month}.${year} · ${hours}:${minutes}`;
+    if (Number.isNaN(dt.getTime())) return "Publiseringsdato ukjent";
+    return `Lagt ut: ${new Intl.DateTimeFormat("nb-NO", {
+        day: "2-digit", month: "2-digit", year: "numeric",
+        hour: "2-digit", minute: "2-digit"
+    }).format(dt)}`;
 }
 
 async function loadPosts() {
-    const res = await fetch("/api/posts");
-    const posts = await res.json();
-
-    posts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-
-
     const container = document.getElementById("posts");
-    container.innerHTML = "";
+    if (!container) return;
+    try {
+        const res = await fetch("/api/posts");
+        if (!res.ok) throw new Error("Kunne ikke hente artiklene");
+        const posts = await res.json();
+        posts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+        container.replaceChildren();
 
-    posts.forEach(p => {
-        container.innerHTML += `
-            <div class="post-card">
-                <h3>${p.title}</h3>
-                <small>${formatDateTime(p.createdAt)}</small>
-                <p>${p.content}</p>
-            </div>
-            <hr>
-        `;
-    });
+        if (posts.length === 0) {
+            const message = document.createElement("p");
+            message.className = "aktuelt-status";
+            message.textContent = "Det er ingen publiserte artikler ennå.";
+            container.append(message);
+            return;
+        }
+
+        posts.forEach(post => {
+            const article = document.createElement("article");
+            article.className = "post-card";
+            const title = document.createElement("h2");
+            title.textContent = post.title || "Uten tittel";
+            const date = document.createElement("p");
+            date.className = "post-card-date";
+            date.textContent = formatDateTime(post.createdAt);
+            const content = document.createElement("p");
+            content.className = "post-card-content";
+            content.textContent = post.content || "";
+            article.append(title, date, content);
+            container.append(article);
+        });
+    } catch (error) {
+        console.error(error);
+        const message = document.createElement("p");
+        message.className = "aktuelt-status";
+        message.textContent = "Kunne ikke laste artiklene. Prøv igjen senere.";
+        container.replaceChildren(message);
+    }
 }
 
-document.addEventListener("DOMContentLoaded", loadPosts);
+document.addEventListener("DOMContentLoaded", () => {
+    setupNavigation();
+    loadOpeningHours();
+    loadPosts();
+});
