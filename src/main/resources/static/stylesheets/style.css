@@ -1104,3 +1104,9 @@ footer a:hover { color: #e5f3d9; }
   *, *::before, *::after { animation-duration: .01ms !important;
     transition-duration: .01ms !important; }
 }
+
+@media (max-width: 422px) {
+  .second-content-image {
+    display: none;
+  }
+}
